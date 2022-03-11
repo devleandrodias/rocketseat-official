@@ -1,0 +1,123 @@
+<!-- Isso é um comentário -->
+
+<!-- 
+  Anatomia da Tag:
+  - Abertura 
+  - Fechamento
+  - Conteúdo
+  - Elementos
+-->
+
+<h1>Isso é um título!</h1>
+
+<!-- Elementos vazios -->
+<br/>
+
+<!-- 
+  Atributos HTML 
+  - Informações extras
+  - Configurações
+  - Atributos boleanos
+-->
+
+<img 
+  src="" 
+  alt="Texto alternativo"
+/>
+
+<input type="text" disabled>
+
+<!-- Link na página -->
+
+<a 
+  href='https://google.com' 
+  target='_blank' 
+  title="Isn't"
+>
+Google
+</a>
+
+<!-- 
+  Atributos globais 
+  - class
+  - contenteditable
+  - data-*
+  - hidden
+  - id
+  - style
+  - tabindex
+  - title
+-->
+
+<div tabindex="1" class="carrinho" contenteditable="true">Carrinho</div>
+<div tabindex="2" class="carrinho" data-qualquer-nome-aqui="">Carrinho</div>
+<div tabindex="4" class="carrinho" hidden>Carrinho</div>
+<div tabindex="3" class="carrinho" id="cart1">Carrinho</div>
+<div class="carrinho" id="cart2">Carrinho</div>
+<div title="Definir um titulo" style="color: red">Carrinho</div>
+
+<!-- 
+  Aninhamento de tags
+
+  - Fluxo
+  - Hierarquia
+  - Posicionamento dos elementos
+ -->
+
+<div>
+  <p>
+    Vou <em style="color: green; font-size: 50px;">escrever</em> um <b style="color: blue">paragrafo</b>
+  </p>
+</div>
+
+<!-- Algumas tag quebram linha outros não (Alinhamentos) -->
+<p>
+  Aqui é um <em>texto</em>
+  <p>Aqui <b>outro</b> texto</p>  
+</p>
+
+<!-- 
+  Vamos praticar 
+
+  Escrever 2 paragrafos, dando enfase
+  e importancia para algumas palavras,
+  e adicione um link de saiba mais
+
+  - use a tag para enfase
+  - use a tag strong para importancia
+  - use o link para levar para o google
+-->
+
+<p>
+  Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+  <em>Officia</em> ad velit nostrum dolor porro officiis in ipsam magnam, vel, 
+  dolorum harum provident corporis <strong>voluptates</strong> qui blanditiis eum consequatur nam tempora.
+</p>
+
+<p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+  <a href="https://google.com.br" target="_blank">Atque</a> cum quis exercitationem velit quo consectetur explicabo sint distinctio, deserunt 
+  suscipit beatae sapiente! Dicta est, atque non itaque voluptatibus reiciendis modi.
+</p>
+
+<!-- 
+  Conteudo do texto e caracteres reservados
+ -->
+
+<p>
+  todos os 
+
+  espaços
+
+  são            ignorados
+  
+
+  e as quebras de linha
+
+  <!-- "", <, >, & -->
+  &lt;
+  &gt;
+  &amp;
+  &quot;Entre aspas&quot;
+  &apos;Aspas simples&apos;
+</p>

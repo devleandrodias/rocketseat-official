@@ -1,0 +1,97 @@
+<!-- 
+  Hyperlink - Elemento ancora: <a>
+
+  + Anatomia
+  
+  + Atributos
+   - globais (id, class, style...)
+   - href
+    - para onde o iremos, quando clicarmos no link?
+      - url completa
+      - fragmento
+      - email
+      - telefone
+      - e outros
+    - download
+    - target
+      - _self (padrão) (mesma tab)
+      - _blank (outra tab)
+ -->
+
+<address>
+  <p>Encontre-me:</p>
+  <ul>
+    <li><a href="https://leandrodias.dev" target="_blank">Website</a></li>
+    <li><a href="mailto:leandrodbdias@gmail.com">Email</a></li>
+    <li><a href="tel:+55123423456">Telefone</a></li>
+  </ul>
+</address>
+
+
+<p>Saiba Mais</p>
+<ul>
+  <li><a href="#about">Sobre mim</a></li>
+  <li><a href="#history">História</a></li>
+  <li><a href="#works">Trabalhos</a></li>
+</ul>
+
+<h1 id="about">Sobre Mim</h1>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti est doloribus reprehenderit laborum quibusdam totam sit soluta? Quibusdam et ut, quis iure officia eveniet quam, dolorem nam corrupti, accusamus aspernatur?
+
+<h2 id="history">História</h2>
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, officiis. Cum saepe, illum facere suscipit incidunt soluta, odit eos obcaecati at voluptates repellendus in! Odio quisquam cupiditate sit commodi tenetur?
+
+<h2 id="works">Trabalhos</h2>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis asperiores modi unde numquam consequuntur quaerat beatae deserunt quo, vitae tempora delectus exercitationem at sit! Commodi impedit suscipit iste mollitia ratione.
+
+<!-- Conteúdos dos Hyperlinks -->
+
+<a href="https://google.com" target="_blank">
+  <h1>Google</h1>
+  <p>Qualquer parágrafo</p>
+  <img style="height: 200px; width: 200px;" src="https://source.unsplash.com/random" alt="Imagem aleatória">
+</a>
+
+<!-- 
+  URLs e Caminhos dos arquivos
+
+  - URL (Uniform Resource Locator)
+    - https://google.com
+    - Sequência de texto que define onde algo está localizado na web
+  - URL usam caminhos para encontrar arquivos
+
+  - Caminho dos arquivos
+    - Onde, no explorador de arquivos, um recurso está localizado
+ -->
+
+ <div>
+   <a href="./other-page.html">Abrir outra página</a>
+  </div>
+
+<!-- 
+  Como navegar pelos caminhos?
+
+    - mesmo diretório
+    - entrando em diretórios
+    - saindo de diretórios
+    - diretório raiz
+ -->
+ 
+ <a href="./other-dictory/other-document.html">Outro diretório</a>
+
+ <!-- 
+    URLs Absolutas X Relativas
+    - Absolutas
+      - inclui protocolo e nome de domínio
+       - http://www.rocktseat.com.br
+       - sempre apontará para o mesmo local, pois é absoluto
+
+    - Relativas
+      - relativo a página aberta no momento
+      - apontará para lugares diferentes
+  -->
+
+<div>
+  <a href="./other-page.html">relativo: ir para outro arquivo relativo ao arquivo atual</a> <br/>
+  <a href="https://google.com">absoluto: ir para o google</a>
+</div>
