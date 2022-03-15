@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidades de medida</title>
+  <style>
+    html {
+      font-size: 10px;
+    }
+
+    body {
+      width: 50%;
+      margin: 0px;
+    }
+
+    div {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 2em;
+    }
+
+    strong {
+      font-size: 2rem;
+    }
+
+    .percent {
+      width: calc(100% + 150px);
+      height: 100px;
+      background-color: blueviolet;
+    }
+
+    .box {
+      height: 300px;
+      width: 100%;
+      background-image: url('http://source.unsplash.com/random');
+      background-image: no-repeat;
+      background-position: left top;
+    }
+
+    .box::after {
+      content: "Aqui vem alguma mensagem";
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div style="border: 1px solid #000;">
+
+      Aqui tem uma font de 18px (1em) (Elemento pai)
+      <p>Aqui tem uma fonte de 36px (2m) (Em relação ao elemento pai)</p>
+      <strong>Aqui tem uma font de 20px (2rem) (Em relação ao elemento root de 10px) (Default 16px)</strong>
+    </div>
+    <div class="percent"></div>
+    <div class="box"></div>
+  </div>
+</body>
+
+</html>

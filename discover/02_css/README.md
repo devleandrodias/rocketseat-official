@@ -27,8 +27,6 @@ h1 {
 
 Conecta um elemento HTML com o CSS
 
-###
-
 - Global selector `*`
 - Element/Type selector `h1, h2, p, div`
 - ID Selector `#box #container`
@@ -48,11 +46,11 @@ Conecta um elemento HTML com o CSS
 
 - atributo `style`
 
-### <style>
+### style
 
 - tag HTML que irá conter o css
 
-### <link>
+### link
 
 - arquivo css externo
 
@@ -142,3 +140,74 @@ inline > tag style > tag link
   width: calc(100% - 10px);
 }
 ```
+
+## Valores e unidades de medidas
+
+- cada propriedade possui valores `property: value`
+- estudos constantes a fim de entender as propriedade e seus valores
+
+### Tipos numéricos
+
+- <integer> Número inteiro como -10 ou 223
+- <number> Número decimal como -2.4, 54 ou 0.341
+- <dimension> É um <number> com uma unidade junto: 90deg. 2s, 8px
+- <perecentagem> Representa a fração de outro número
+
+### Unidades comuns
+
+- <length> Representa um valor de distância: px, em, vw
+- <angle> Representa um ângulo: deg, rad, turn
+- <time> Representa um tempo s, ms
+- <resolution> Representa resoluções para dispositivos: dpi
+
+### Distâncias absolutas <length>
+
+- São fixas e não alteram seu valor
+
+| Unidade | Nome               | Equivalência        |
+| ------- | ------------------ | ------------------- |
+| cm      | Centímetro         | 1cm = 96px/2.54     |
+| in      | Inches (polegadas) | 1in = 2.54cm = 96px |
+| px      | Pixes              | 1px = 1/96th of 1in |
+
+- O mais comun e mais utilizado é o **px**
+- Não recomendado usar o **cm**
+
+### Distâncias relativas
+
+- São relativas a algum outro valor, pode ser o elemento pai, ou root, ou o tamanho da tela
+
+* Benefícios: Maior adaptação aos diferentes tipos de tela
+
+| Unidade | Relativo a                                    |
+| ------- | --------------------------------------------- |
+| em      | Tamanho da fonte do pai                       |
+| rem     | Tamanho da fonte do elemento raiz (root/html) |
+| vw      | 1% da viewport width                          |
+| vh      | 1% da viewport height                         |
+
+### Porcentagens %
+
+- Em muitos casos é tratado da mesma maneira que as distâncias <length>
+- Sempre será relativo a algum valor
+
+### Posições <position>
+
+- Representa um conjunto de coordenadas 2D:
+- Top, Right, Bottom, Left, Center
+- Usado para alguns tipos de propriedades
+- Não confundir com a propriedade `position`
+
+### Funções
+
+- Em programação, funções são reconhecidas por causar um reaproveitamento de código
+
+* rgb()
+* hsl()
+* url()
+* calc()
+
+### Strings e identificadores
+
+- Strings: Texto envolto em aspas
+- Identificadores: red, black, gold
