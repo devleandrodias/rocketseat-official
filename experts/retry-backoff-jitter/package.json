@@ -1,0 +1,12 @@
+{
+  "name": "retry-backoff-jitter",
+  "version": "1.0.0",
+  "description": "Quando um nó (serviço) não consegue se comunicar com outro nó (serviço) temos uma **Partição**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
