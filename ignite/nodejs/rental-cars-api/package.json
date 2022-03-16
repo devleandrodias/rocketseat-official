@@ -8,7 +8,8 @@
     "dev": "ts-node-dev --inspect --respawn --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Leandro Dias",
+  "type": "module",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",

@@ -5,7 +5,13 @@ interface ICreateCategoryDto {
   description: string;
 }
 
-class CategoryRepository {
+interface ICategoryRepository {
+  findByName(name: string): Category;
+  find(): Category[];
+  create(data: ICreateCategoryDto): void;
+}
+
+class CategoryRepository implements ICategoryRepository {
   private categories: Category[];
 
   constructor() {
@@ -33,4 +39,4 @@ class CategoryRepository {
   }
 }
 
-export { CategoryRepository };
+export { CategoryRepository, ICategoryRepository, ICreateCategoryDto };
