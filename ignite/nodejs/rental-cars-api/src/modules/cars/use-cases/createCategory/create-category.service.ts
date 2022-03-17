@@ -1,4 +1,4 @@
-import { ICategoryRepository } from "../../repositories/categories.repository";
+import { ICategoryRepository } from "../../repositories/implementations/category.repository";
 
 interface ICreateCategoryRequest {
   name: string;
