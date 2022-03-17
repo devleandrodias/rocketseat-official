@@ -1,4 +1,4 @@
-import { createReadStream } from "fs";
+import { createReadStream, promises } from "fs";
 import { parse } from "csv-parse";
 import { ICategoryRepository } from "../../repositories/interfaces/category.repository.interfaces";
 
@@ -27,6 +27,7 @@ export class ImportCategoryService {
         })
         .on("end", () => {
           resolve(categories);
+          promises.unlink(file.path);
         })
         .on("error", (err) => reject(err));
     });
