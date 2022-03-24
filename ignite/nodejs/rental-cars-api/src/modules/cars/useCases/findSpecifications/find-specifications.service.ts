@@ -1,4 +1,4 @@
-import { Specification } from "../../models/specification";
+import { Specification } from "../../entities/specification";
 import { SpecificationRepository } from "../../repositories/implementations/specification.repository";
 
 export class FindSpecificationsService {

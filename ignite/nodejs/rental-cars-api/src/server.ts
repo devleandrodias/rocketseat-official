@@ -3,13 +3,18 @@ import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "./swagger.json";
 
 import { router } from "./routes";
+import { AppDataSource } from "./database/data-source";
 
-const app = express();
+AppDataSource.initialize().then(() => {
+  console.log("Database is running 🚀...");
 
-app.use(express.json());
-app.use(router);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  const app = express();
 
-app.listen(4000, () => {
-  console.log("Server is running 🚀...");
+  app.use(express.json());
+  app.use(router);
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+  app.listen(4000, () => {
+    console.log("Server is running 🚀...");
+  });
 });

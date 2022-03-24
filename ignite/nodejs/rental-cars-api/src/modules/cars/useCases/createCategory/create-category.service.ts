@@ -12,12 +12,12 @@ class CreateCategoryService {
     this._categoriesRepository = categoriesRepository;
   }
 
-  execute({ name, description }: ICreateCategoryRequest): void {
-    if (this._categoriesRepository.findByName(name)) {
+  async execute({ name, description }: ICreateCategoryRequest): Promise<void> {
+    if (await this._categoriesRepository.findByName(name)) {
       throw new Error("Category already exists!");
     }
 
-    this._categoriesRepository.create({ name, description });
+    await this._categoriesRepository.create({ name, description });
   }
 }
 
