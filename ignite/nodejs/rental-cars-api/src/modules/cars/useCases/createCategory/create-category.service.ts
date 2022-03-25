@@ -1,3 +1,4 @@
+import { inject, injectable } from "tsyringe";
 import { ICategoryRepository } from "../../repositories/interfaces/category.repository.interfaces";
 
 interface ICreateCategoryRequest {
@@ -5,10 +6,14 @@ interface ICreateCategoryRequest {
   description: string;
 }
 
-class CreateCategoryService {
+@injectable()
+export class CreateCategoryService {
   private _categoriesRepository: ICategoryRepository;
 
-  constructor(categoriesRepository: ICategoryRepository) {
+  constructor(
+    @inject("CategoryRepository")
+    categoriesRepository: ICategoryRepository
+  ) {
     this._categoriesRepository = categoriesRepository;
   }
 
@@ -20,5 +25,3 @@ class CreateCategoryService {
     await this._categoriesRepository.create({ name, description });
   }
 }
-
-export { CreateCategoryService };

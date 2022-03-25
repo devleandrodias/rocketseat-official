@@ -1,8 +1,13 @@
+import { inject, injectable } from "tsyringe";
 import { Category } from "../../entities/category";
 import { ICategoryRepository } from "../../repositories/interfaces/category.repository.interfaces";
 
+@injectable()
 export class FindCategoriesService {
-  constructor(private categoryRepository: ICategoryRepository) {}
+  constructor(
+    @inject("CategoryRepository")
+    private categoryRepository: ICategoryRepository
+  ) {}
 
   async execute(): Promise<Category[]> {
     return this.categoryRepository.find();

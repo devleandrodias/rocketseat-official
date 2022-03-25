@@ -1,9 +1,18 @@
 import { v4 } from "uuid";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
-class Specification {
+@Entity("specification")
+export class Specification {
+  @PrimaryColumn()
   id?: string;
+
+  @Column()
   name: string;
+
+  @Column()
   description: string;
+
+  @CreateDateColumn()
   createdAt: Date;
 
   constructor() {
@@ -12,5 +21,3 @@ class Specification {
     }
   }
 }
-
-export { Specification };

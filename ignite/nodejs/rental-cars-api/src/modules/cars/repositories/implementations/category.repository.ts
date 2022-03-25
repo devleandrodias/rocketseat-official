@@ -4,8 +4,8 @@ import { Category } from "../../entities/category";
 import { AppDataSource } from "../../../../database/data-source";
 
 import {
-  ICategoryRepository,
   ICreateCategoryDto,
+  ICategoryRepository,
 } from "../interfaces/category.repository.interfaces";
 
 export class CategoryRepository implements ICategoryRepository {
@@ -14,16 +14,6 @@ export class CategoryRepository implements ICategoryRepository {
   constructor() {
     this.repository = AppDataSource.getRepository(Category);
   }
-
-  // private static INSTANCE: CategoryRepository;
-
-  // public static getInstance(): CategoryRepository {
-  //   if (!CategoryRepository.INSTANCE) {
-  //     CategoryRepository.INSTANCE = new CategoryRepository();
-  //   }
-
-  //   return CategoryRepository.INSTANCE;
-  // }
 
   async find(): Promise<Category[]> {
     return this.repository.find();
@@ -34,11 +24,7 @@ export class CategoryRepository implements ICategoryRepository {
   }
 
   async create({ name, description }: ICreateCategoryDto): Promise<void> {
-    const category = this.repository.create({
-      name,
-      description,
-    });
-
+    const category = this.repository.create({ name, description });
     await this.repository.save(category);
   }
 }
