@@ -12,11 +12,13 @@ export class UserRepository implements IUserRepository {
   }
 
   async create(data: ICreateUserDto): Promise<void> {
-    const { name, email, password, driverLicense } = data;
+    const { name, email, password, driverLicense, id, avatar } = data;
 
     const user = this.repository.create({
+      id,
       name,
       email,
+      avatar,
       password,
       driverLicense,
     });
