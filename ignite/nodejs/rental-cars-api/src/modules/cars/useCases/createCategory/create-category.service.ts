@@ -1,4 +1,5 @@
 import { inject, injectable } from "tsyringe";
+import { AppError } from "../../../../erros/app-error";
 import { ICategoryRepository } from "../../repositories/interfaces/category.repository.interfaces";
 
 interface ICreateCategoryRequest {
@@ -19,7 +20,7 @@ export class CreateCategoryService {
 
   async execute({ name, description }: ICreateCategoryRequest): Promise<void> {
     if (await this._categoriesRepository.findByName(name)) {
-      throw new Error("Category already exists!");
+      throw new AppError("Category already exists!");
     }
 
     await this._categoriesRepository.create({ name, description });
