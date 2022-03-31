@@ -211,3 +211,38 @@ inline > tag style > tag link
 
 - Strings: Texto envolto em aspas
 - Identificadores: red, black, gold
+
+## Cores
+
+Usamos CSS para alterar cores do nosso documento
+
+### Tipos de cores
+
+- background-color (para caixas)
+- color (para textos)
+- border-color (para caixas)
+- outros...
+
+### Valores
+
+- Podemos definir os valores por
+- palavra chave (blue, red)
+- hexadecimal (#990011)
+- funções rgb, rgba, hsl, hsla
+
+## Background
+
+- Define um fundo para o nosso elemento
+- Sua área de atuação é a caixa toda
+- Por padrão transparente
+
+### Exemplos
+
+- Usar cores sólidas
+- Usar imagens
+- Controlar
+  - a posição das imagens
+  - se elas se repetem ou não
+  - o tamanho delas na caixa
+- Usar cor e imagens juntas
+- Usar cor gradiente
