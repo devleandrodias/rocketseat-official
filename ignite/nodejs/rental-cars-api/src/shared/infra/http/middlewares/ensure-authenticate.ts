@@ -1,8 +1,8 @@
 import { verify } from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
-import { AppError } from "../erros/app-error";
-import { UserRepository } from "../modules/accounts/repositories/implementations/user.repository";
+import { AppError } from "@shared/errors/app-error";
+import { UserRepository } from "@modules/accounts/infra/typeorm/repositories/user.repository";
 
 interface IJwtPayload {
   sub: string;

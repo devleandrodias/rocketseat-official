@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+
 import {
   Column,
   Entity,
@@ -30,4 +32,10 @@ export class User {
 
   @CreateDateColumn()
   createdAt: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = v4();
+    }
+  }
 }

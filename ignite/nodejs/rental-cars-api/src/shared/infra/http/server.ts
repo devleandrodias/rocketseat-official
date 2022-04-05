@@ -1,14 +1,15 @@
 import "reflect-metadata";
 import "express-async-errors";
-import "./shared/container";
+import "../../container";
 
 import express, { Request, Response, NextFunction } from "express";
-import swaggerUi from "swagger-ui-express";
-import swaggerDocument from "./swagger.json";
 
-import { router } from "./routes";
-import { AppError } from "./erros/app-error";
-import { AppDataSource } from "./database/data-source";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "../../../swagger.json";
+
+import { AppError } from "@shared/errors/app-error";
+import { router } from "@shared/infra/http/routes";
+import { AppDataSource } from "@shared/infra/typeorm/data-source";
 
 AppDataSource.initialize().then(() => {
   console.log("Database is running 🚀...");

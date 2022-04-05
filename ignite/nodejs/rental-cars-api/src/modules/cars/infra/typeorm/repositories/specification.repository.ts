@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 
-import { Specification } from "../../entities/specification";
+import { Specification } from "../../infra/typeorm/entities/specification";
 import { AppDataSource } from "../../../../database/data-source";
 
 import {
