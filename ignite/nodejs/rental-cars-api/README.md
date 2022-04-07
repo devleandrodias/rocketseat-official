@@ -29,3 +29,23 @@ docker-compose up --force-recreate -d
 - Escrever primeiro teste que vai falhar (Red)
 - Implemente a solução (Green)
 - Refatore (Refactor)
+
+## Levantamento de requisitos
+
+**Requisitos Funcionais (RF)**
+
+- Requisitos funcionais são as funcionalidades do seu sistema
+  - Adicionar categoria
+  - Adicionar um carro
+
+**Requisitos Não Funcionais (RNF)**
+
+- Tudo aquilo que não é de negócio
+  - Qual ORM usar?
+  - Performance
+  - Cache
+
+**Regras de Negócio (RN)**
+
+- São as regras por trás dos requisitos
+  - Não deve ser possível cadastrar uma categoria com um nome já existente
