@@ -7,7 +7,7 @@ import { FindCategoriesController } from "@modules/cars/useCases/findCategories/
 
 const categoriesRoutes = Router();
 
-const upload = multer({ dest: "./temp" });
+const upload = multer({ dest: "./tmp" });
 
 const createCategoryController = new CreateCategoryController();
 const findCategoriesController = new FindCategoriesController();
