@@ -1,14 +1,17 @@
+import "dotenv/config";
 import "reflect-metadata";
 import "express-async-errors";
-import "../../container";
 
-import express, { Request, Response, NextFunction } from "express";
+import "../../container";
+import "../../container/providers";
+
+import express, { Request, Response } from "express";
 
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "../../../swagger.json";
 
-import { AppError } from "@shared/errors/app-error";
 import { router } from "@shared/infra/http/routes";
+import { AppError } from "@shared/errors/app-error";
 import { AppDataSource } from "@shared/infra/typeorm/data-source";
 
 AppDataSource.initialize().then(() => {
@@ -20,7 +23,7 @@ AppDataSource.initialize().then(() => {
   app.use(router);
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-  app.use((err: Error, _: Request, res: Response, next: NextFunction) => {
+  app.use((err: Error, _: Request, res: Response) => {
     if (err instanceof AppError) {
       return res.status(err.statusCode).json({
         message: err.message,
