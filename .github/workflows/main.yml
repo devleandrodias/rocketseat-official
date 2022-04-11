@@ -16,8 +16,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+          
+      - name: Change Directory
+        run: 'cd ignite/nodejs/rental-cars-api'
+        
       - name: Install Dependencies
-        run: 'cd ignite/nodejs/rental-cars-api && npm install'
+        run: 'npm install'
+        
       - name: Build
         run: 'echo building...'
         
