@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* 
+    div {
+      width: 100px;
+      height: 100px;
+      color: aliceblue;
+      border: 5px solid red;
+      margin: 10%;
+      padding: 0px 20px;
+      background-color: blue;
+    } */
+
+    .block {
+      height: 100px;
+      border: 5px solid red;
+      width: 25px;
+      margin: 50px 50px
+    }
+
+    .inline {
+      height: 100px;
+      border: 5px solid green;
+      width: 25px;
+      /* Não empura nas verticais */
+      margin: 50px 50px;
+      /* display: block; */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div>
+    CSS é íncrivel!
+  </div> -->
+  <!-- <div>
+    <p style="display: inline;">Um <strong>texto</strong> qualquer</p>
+    mais um conteúdo inline
+  </div>
+  <div>
+    Outro conteúdo
+  </div> -->
+  <div class="block">
+    Block
+  </div>
+  <span class="inline">
+    Inline
+  </span>
+</body>
+
+</html>
