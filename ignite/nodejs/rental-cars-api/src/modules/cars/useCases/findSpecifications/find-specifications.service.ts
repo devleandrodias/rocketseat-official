@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
-import { Specification } from "../../entities/specification";
-import { SpecificationRepository } from "../../repositories/implementations/specification.repository";
+import { Specification } from "../../infra/typeorm/entities/specification";
+import { SpecificationRepository } from "@modules/cars/infra/typeorm/repositories/specification.repository";
 
 @injectable()
 export class FindSpecificationsService {

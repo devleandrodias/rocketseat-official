@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { AppError } from "../../../../erros/app-error";
+import { AppError } from "../../../../shared/errors/app-error";
 import { ISpecificationRepository } from "../../repositories/interfaces/specification.repository.interface";
 
 interface ICreateSpecificationRequest {
