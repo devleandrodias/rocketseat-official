@@ -212,6 +212,53 @@ inline > tag style > tag link
 - Strings: Texto envolto em aspas
 - Identificadores: red, black, gold
 
+## Box Model
+
+- Fundamental para fazer layouts para a web
+- Maior facilidade para aplicar o CSS
+
+### O que é?
+
+- Uma caixa retangular
+- Essa caixa possui propriedades de uma caixa (2D)
+
+| Nome                        | Propriedade     |
+| --------------------------- | --------------- |
+| Tamanho (largura \* altura) | width \* height |
+| Conteúdo                    | content         |
+| Bordas                      | border          |
+| Preenchimento interno       | padding         |
+| Espaços fora da caixa       | margin          |
+
+- Cada elemento na sua página, será considerado uma caixa
+
+### Box-Sizing
+
+- Como será calculado o tamanho total da caixa
+
+- content-box | border-box
+
+```css
+div {
+  box-sizing: border-box;
+}
+```
+
+### display: block vs inline
+
+- Como as caixas se comportam em relação às outras caixas
+- Comportamento externo das caixas
+
+| **block**                                                      | **inline**                                              |
+| -------------------------------------------------------------- | ------------------------------------------------------- |
+| Ocupa toda a linha, colocando o próximo elemento abaixo desses | Elemento ao ladodo outro                                |
+| Width e height são respeitados                                 | Width e height não funcionam                            |
+| Padding, margin, border irão funcionar normalmente             | Somente valores horizontais de margin, padding e border |
+
+- Exemplos:
+  - block: `<p> <div> <section>`, todos os headings `<h1><h2>...`
+  - inline: `<a> <strong> <span> <em>`
+
 ## Cores
 
 Usamos CSS para alterar cores do nosso documento
