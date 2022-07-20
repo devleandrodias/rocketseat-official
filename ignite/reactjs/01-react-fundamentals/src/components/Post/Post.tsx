@@ -1,49 +1,140 @@
+import { useState } from "react";
+import { v4 as uuid } from "uuid";
+
 import styles from "./Post.module.css";
 
 import { Avatar } from "../Avatar/Avatar";
 import { Comment } from "../Comment/Comment";
 
-export function Post() {
+export type PostContent = {
+  id: string;
+  type: string;
+  content: string;
+};
+
+export type PostProps = {
+  id: string;
+  author: {
+    name: string;
+    role: string;
+    avatarUrl: string;
+  };
+  content: PostContent[];
+  publishedAt: Date;
+};
+
+export function Post({ author, publishedAt, content }: PostProps) {
+  const [comments, setComments] = useState([
+    {
+      id: uuid(),
+      content: "Muito bom Leandro! Parabéns!! 🎉",
+    },
+  ]);
+
+  const [newCommentText, setNewCommentText] = useState("");
+
+  const publishedDateFormatted = new Intl.DateTimeFormat("pt-BR", {
+    dateStyle: "full",
+  }).format(publishedAt);
+
+  function handleNewCommentChange() {
+    event?.target.setCustomValidity("");
+    setNewCommentText(event.target.value);
+  }
+
+  function handleCreateNewComment() {
+    event?.preventDefault();
+
+    setComments([
+      ...comments,
+      {
+        id: uuid(),
+        content: newCommentText,
+      },
+    ]);
+
+    setNewCommentText("");
+  }
+
+  function handleNewCommentInvalid() {
+    console.log(event?.target.setCustomValidity("Esse campo é obrigatório"));
+  }
+
+  function deleteComment(id: string) {
+    const commentsWithoutDeleted = comments.filter(
+      (comment) => comment.id !== id
+    );
+
+    setComments(commentsWithoutDeleted);
+  }
+
+  const isNewCommentInputEmpty = newCommentText.trim().length === 0;
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/devleandrodias.png" />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Leandro Dias</strong>
-            <span>Senior Software Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
-        <time title="11 de Maio às 8:22" dateTime="2022-05-11 08:22:53">
-          Publicado há 1 hora
+        <time
+          title={publishedDateFormatted}
+          dateTime={publishedAt.toISOString()}
+        >
+          {publishedDateFormatted}
         </time>
       </header>
 
       <div className={styles.content}>
-        <p>Falaaa Devvv 🎉</p>
-        <p>Acabei de subir mais um projeto usando Javascript no meu Github.</p>
-        <p>
-          👉 <a href="#">devleandrodias/rocketseat</a>
-        </p>
-        <p>
-          <a href="#">#novoproject</a> <a href="#">#nlw</a>{" "}
-          <a href="#">#rocketseat</a> <a href="#">#javascript</a>{" "}
-          <a href="#">#reactjs</a>{" "}
-        </p>
+        {content.map((line) => {
+          if (line.type === "paragraph") {
+            return <p key={line.content}>{line.content}</p>;
+          }
+
+          if (line.type === "link") {
+            return (
+              <p key={line.content}>
+                <a href={line.content} target="_blank">
+                  {line.content}
+                </a>
+              </p>
+            );
+          }
+        })}
       </div>
 
-      <form className={styles.commentForm}>
+      <form
+        value={newCommentText}
+        onSubmit={handleCreateNewComment}
+        className={styles.commentForm}
+      >
         <strong>Deixe seu feedback</strong>
-        <textarea placeholder="Deixei um comentário" />
+        <textarea
+          required
+          name="comment"
+          placeholder="Deixei um comentário"
+          onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+        />
         <footer>
-          <button type="submit">Publicar</button>
+          <button disabled={isNewCommentInputEmpty} type="submit">
+            Publicar
+          </button>
         </footer>
       </form>
 
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map(({ id, content }) => (
+          <Comment
+            id={id}
+            key={id}
+            content={content}
+            onDeleteComment={deleteComment}
+          />
+        ))}
       </div>
     </article>
   );
