@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import styles from "./Post.module.css";
@@ -6,21 +6,23 @@ import styles from "./Post.module.css";
 import { Avatar } from "../Avatar/Avatar";
 import { Comment } from "../Comment/Comment";
 
-export type PostContent = {
+export type Content = {
   id: string;
-  type: string;
   content: string;
+  type: "paragraph" | "link";
+};
+
+export type Author = {
+  name: string;
+  role: string;
+  avatarUrl: string;
 };
 
 export type PostProps = {
   id: string;
-  author: {
-    name: string;
-    role: string;
-    avatarUrl: string;
-  };
-  content: PostContent[];
+  author: Author;
   publishedAt: Date;
+  content: Content[];
 };
 
 export function Post({ author, publishedAt, content }: PostProps) {
@@ -37,12 +39,7 @@ export function Post({ author, publishedAt, content }: PostProps) {
     dateStyle: "full",
   }).format(publishedAt);
 
-  function handleNewCommentChange() {
-    event?.target.setCustomValidity("");
-    setNewCommentText(event.target.value);
-  }
-
-  function handleCreateNewComment() {
+  function handleCreateNewComment(event: FormEvent) {
     event?.preventDefault();
 
     setComments([
@@ -56,7 +53,12 @@ export function Post({ author, publishedAt, content }: PostProps) {
     setNewCommentText("");
   }
 
-  function handleNewCommentInvalid() {
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
+    event?.target.setCustomValidity("");
+    setNewCommentText(event.target.value);
+  }
+
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     console.log(event?.target.setCustomValidity("Esse campo é obrigatório"));
   }
 
@@ -106,15 +108,12 @@ export function Post({ author, publishedAt, content }: PostProps) {
         })}
       </div>
 
-      <form
-        value={newCommentText}
-        onSubmit={handleCreateNewComment}
-        className={styles.commentForm}
-      >
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
         <textarea
           required
           name="comment"
+          value={newCommentText}
           placeholder="Deixei um comentário"
           onChange={handleNewCommentChange}
           onInvalid={handleNewCommentInvalid}
