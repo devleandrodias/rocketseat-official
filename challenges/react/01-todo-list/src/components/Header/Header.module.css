@@ -1,4 +1,4 @@
-.headerContainer {
+.header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,7 +7,7 @@
   background: var(--gray-700);
 }
 
-.headerContainer img {
+.header img {
   height: 3rem;
   width: 7.875rem;
 }
