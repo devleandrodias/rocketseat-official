@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Bookmarks, PlusCircle } from "phosphor-react";
+import { Bookmarks, Circle, PlusCircle, Trash } from "phosphor-react";
 
 import styles from "./TodoList.module.css";
 
@@ -11,7 +11,7 @@ export const TodoList = () => {
   const countTasksCreated = tasks.length;
 
   const handleAddNewTask = function () {
-    setTasks([...tasks, "Finish mobly work"]);
+    setTasks([...tasks, "Create todo list challenge"]);
   };
 
   return (
@@ -33,7 +33,13 @@ export const TodoList = () => {
         </span>
       </div>
       {existsTasks ? (
-        <h1>Tasks</h1>
+        tasks.map((task) => (
+          <div className={styles.taskCard}>
+            <Circle size={16} />
+            <span>{task}</span>
+            <Trash size={16} className={styles.iconTrash} />
+          </div>
+        ))
       ) : (
         <div className={styles.blankTable}>
           <Bookmarks size={64} />

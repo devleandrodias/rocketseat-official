@@ -67,3 +67,32 @@
   font-weight: 700;
   margin-top: 1.5rem;
 }
+
+.taskCard {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--gray-100);
+  background: var(--gray-500);
+  border: solid 1px var(--gray-400);
+}
+
+.taskCard svg {
+  cursor: pointer;
+}
+
+.taskCard span {
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+.taskCard .iconTrash {
+  color: var(--gray-300);
+}
+
+.taskCard .iconTrash:hover {
+  color: var(--danger);
+}
