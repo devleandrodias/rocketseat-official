@@ -43,10 +43,20 @@
   color: var(--blue)
 }
 
+/* Melhorar forma de padding dos counters */
+
 .taskHeader .counter {
   color: var(--gray-200);
   padding: 0.25rem 0.60rem;
-  border-radius: 50%;
+  border-radius: 16px;
+  margin-left: 0.5rem;
+  background: var(--gray-400);
+}
+
+.taskHeader .counter2 {
+  color: var(--gray-200);
+  padding: 0.25rem 0.60rem;
+  border-radius: 8px;
   margin-left: 0.5rem;
   background: var(--gray-400);
 }
@@ -80,7 +90,13 @@
   border: solid 1px var(--gray-400);
 }
 
+/* Melhorar essa repeticao */
+
 .taskCard svg {
+  cursor: pointer;
+}
+
+.taskCardDone svg {
   cursor: pointer;
 }
 
@@ -95,4 +111,25 @@
 
 .taskCard .iconTrash:hover {
   color: var(--danger);
+}
+
+/* Criar um base TaskCard com caracteristicas comuns entre versao Done e Undone */
+
+.taskCardDone {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-decoration: line-through;
+  font-size: 0.875rem;
+  color: var(--gray-300);
+  background: var(--gray-500);
+  border: solid 1px var(--gray-400);
+}
+
+/* Nao Repertir esse estilo */
+.taskCardDone span {
+  margin-left: 0.5rem;
+  flex: 1;
 }
