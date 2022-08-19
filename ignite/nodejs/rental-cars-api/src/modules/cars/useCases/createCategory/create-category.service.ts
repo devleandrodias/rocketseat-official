@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { AppError } from "../../../../shared/errors/app-error";
+import { AppError } from "@shared/errors/app-error";
 import { ICategoryRepository } from "../../repositories/interfaces/category.repository.interfaces";
 
 interface ICreateCategoryRequest {
@@ -12,7 +12,7 @@ export class CreateCategoryService {
   private _categoriesRepository: ICategoryRepository;
 
   constructor(
-    @inject("CategoryRepository")
+    // @inject("CategoryRepository")
     categoriesRepository: ICategoryRepository
   ) {
     this._categoriesRepository = categoriesRepository;
