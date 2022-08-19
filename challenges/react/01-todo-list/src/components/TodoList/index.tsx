@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import * as zod from "zod";
 
 import {
   Trash,
@@ -22,8 +25,11 @@ type Todo = {
   status: "done" | "undone";
 };
 
+const newTodo = zod.object({ todo: zod.string().min(1) });
+
 export const TodoList = () => {
   const { register, handleSubmit, reset } = useForm<AddNewTodoForm>({
+    resolver: zodResolver(newTodo),
     defaultValues: { todo: "" },
   });
 
