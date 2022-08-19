@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import * as zod from "zod";
@@ -33,7 +33,17 @@ export const TodoList = () => {
     defaultValues: { todo: "" },
   });
 
-  const [todoList, setTodoList] = useState<Todo[]>([]);
+  function getLocalTodos(): Todo[] {
+    return JSON.parse(String(localStorage.getItem("@rocketseat/todo")));
+  }
+
+  const [todoList, setTodoList] = useState<Todo[]>(() => {
+    return getLocalTodos() || [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("@rocketseat/todo", JSON.stringify(todoList));
+  }, [todoList]);
 
   const existsTodos = todoList.length > 0;
   const countTotalTodos = todoList.length;
