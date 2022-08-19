@@ -1,5 +1,6 @@
 .todoList {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: auto;
   width: 60vw;
@@ -8,8 +9,7 @@
 .searchContainer {
   flex: 1;
   display: flex;
-  height: 3rem;
-  margin: -1.5rem;
+  margin-top: -1.5rem;
   justify-content: center;
 }
 
@@ -33,4 +33,103 @@
   padding: 1rem;
   color: var(--gray-100);
   background: var(--blue-dark);
+}
+
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-top: 3rem;
+  color: var(--blue)
+}
+
+/* Melhorar forma de padding dos counters */
+
+.taskHeader .counter {
+  color: var(--gray-200);
+  padding: 0.25rem 0.60rem;
+  border-radius: 16px;
+  margin-left: 0.5rem;
+  background: var(--gray-400);
+}
+
+.taskHeader .counter2 {
+  color: var(--gray-200);
+  padding: 0.25rem 0.60rem;
+  border-radius: 8px;
+  margin-left: 0.5rem;
+  background: var(--gray-400);
+}
+
+.blankTable {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 3rem 0rem;
+  color: var(--gray-300);
+  margin-top: 1rem;
+  border-top: 2px solid var(--gray-500);
+}
+
+.blankTable .mainTitle {
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+
+.taskCard {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--gray-100);
+  background: var(--gray-500);
+  border: solid 1px var(--gray-400);
+}
+
+/* Melhorar essa repeticao */
+
+.taskCard svg {
+  cursor: pointer;
+}
+
+.taskCardDone svg {
+  cursor: pointer;
+}
+
+.taskCard span {
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+.taskCard .iconTrash {
+  color: var(--gray-300);
+}
+
+.taskCard .iconTrash:hover {
+  color: var(--danger);
+}
+
+/* Criar um base TaskCard com caracteristicas comuns entre versao Done e Undone */
+
+.taskCardDone {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-decoration: line-through;
+  font-size: 0.875rem;
+  color: var(--gray-300);
+  background: var(--gray-500);
+  border: solid 1px var(--gray-400);
+}
+
+/* Nao Repertir esse estilo */
+.taskCardDone span {
+  margin-left: 0.5rem;
+  flex: 1;
 }
