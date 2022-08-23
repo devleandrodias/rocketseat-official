@@ -90,6 +90,10 @@
   border: solid 1px var(--gray-400);
 }
 
+.taskCard:last-child {
+  margin-bottom: 1rem;
+}
+
 /* Melhorar essa repeticao */
 
 .taskCard svg {

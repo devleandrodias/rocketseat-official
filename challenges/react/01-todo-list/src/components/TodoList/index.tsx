@@ -25,7 +25,7 @@ type Todo = {
   status: "done" | "undone";
 };
 
-const newTodo = zod.object({ todo: zod.string().min(1) });
+const newTodo = zod.object({ todo: zod.string().trim().min(1) });
 
 export const TodoList = () => {
   const { register, handleSubmit, reset } = useForm<AddNewTodoForm>({
