@@ -131,7 +131,7 @@ export const TodoList = () => {
             <div key={id} className={taskContainerStyle}>
               {taskIsDone ? (
                 <CheckCircle
-                  size={16}
+                  size={20}
                   weight="fill"
                   color="#1e6f9f"
                   className={styles.baseIcon}
@@ -139,7 +139,7 @@ export const TodoList = () => {
                 />
               ) : (
                 <Circle
-                  size={16}
+                  size={20}
                   className={styles.baseIcon}
                   onClick={() => handleMarkTodoAsDone(id)}
                 />
@@ -149,7 +149,7 @@ export const TodoList = () => {
                 className={styles.iconTrash}
                 onClick={() => handleRemoveTodoById(id)}
               >
-                <Trash size={16} />
+                <Trash size={20} />
               </div>
             </div>
           );
