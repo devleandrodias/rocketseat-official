@@ -10,7 +10,7 @@ import {
   Circle,
   Bookmarks,
   PlusCircle,
-  CircleWavyCheck,
+  CheckCircle,
 } from "phosphor-react";
 
 import styles from "./TodoList.module.css";
@@ -109,43 +109,51 @@ export const TodoList = () => {
       </form>
       <div className={styles.taskHeader}>
         <span>
-          Tarefas criadas
-          <span className={styles.counter}>{countTotalTodos}</span>
+          <span>Tarefas criadas</span>
+          <span className={styles.counterTask}>{countTotalTodos}</span>
         </span>
         <span>
-          Concluidas
-          <span className={styles.counter2}>
+          <span className={styles.counterTimeText}>Concluidas</span>
+          <span className={styles.counterTime}>
             {countTotalDoneTodos} de {countTotalTodos}
           </span>
         </span>
       </div>
       {existsTodos ? (
-        todoList.map(({ id, description, status }) => (
-          <div
-            key={id}
-            className={
-              status === "done" ? styles.taskCardDone : styles.taskCard
-            }
-          >
-            {/* Melhorar essa IF para aplicar um botao ou outro */}
-            {status === "done" ? (
-              <CircleWavyCheck
-                size={16}
-                weight="fill"
-                color="#1e6f9f"
-                onClick={() => handleMarkTodoAsUndone(id)}
-              />
-            ) : (
-              <Circle size={16} onClick={() => handleMarkTodoAsDone(id)} />
-            )}
-            <span>{description}</span>
-            <Trash
-              size={16}
-              className={styles.iconTrash}
-              onClick={() => handleRemoveTodoById(id)}
-            />
-          </div>
-        ))
+        todoList.map(({ id, description, status }) => {
+          const taskIsDone = status === "done";
+
+          const taskContainerStyle = `${styles.baseCard} ${
+            taskIsDone ? styles.taskCardDone : styles.taskCard
+          }`;
+
+          return (
+            <div key={id} className={taskContainerStyle}>
+              {taskIsDone ? (
+                <CheckCircle
+                  size={16}
+                  weight="fill"
+                  color="#1e6f9f"
+                  className={styles.baseIcon}
+                  onClick={() => handleMarkTodoAsUndone(id)}
+                />
+              ) : (
+                <Circle
+                  size={16}
+                  className={styles.baseIcon}
+                  onClick={() => handleMarkTodoAsDone(id)}
+                />
+              )}
+              <span>{description}</span>
+              <div
+                className={styles.iconTrash}
+                onClick={() => handleRemoveTodoById(id)}
+              >
+                <Trash size={16} />
+              </div>
+            </div>
+          );
+        })
       ) : (
         <div className={styles.blankTable}>
           <Bookmarks size={64} />
