@@ -1,9 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import { Router } from "./Router";
-import { GlobalStyle } from "./styles/global";
-import { lightTheme } from "./styles/themes/light";
+import { Router } from "../routes";
+import { GlobalStyle } from "../styles/global";
+import { lightTheme } from "../styles/themes/light";
 
 export function App() {
   return (
