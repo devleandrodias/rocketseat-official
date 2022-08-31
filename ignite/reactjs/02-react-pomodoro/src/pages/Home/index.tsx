@@ -1,6 +1,5 @@
 import * as zod from 'zod'
 
-import { useContext } from 'react'
 import { HandPalm, Play } from 'phosphor-react'
 import { FormProvider, useForm } from 'react-hook-form'
 
@@ -14,7 +13,7 @@ import {
 
 import { Countdown } from './components/Countdown'
 import { NewCycleForm } from './components/NewCycleForm'
-import { CyclesContext } from '../../contexts/CyclesContext'
+import { useCyclesContext } from '../../contexts/cycles/cycles.hook'
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Necessario informar a tarefa'),
@@ -28,7 +27,7 @@ type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
 export function Home() {
   const { activeCycle, createNewCycle, interruptCurrentCycle } =
-    useContext(CyclesContext)
+    useCyclesContext()
 
   const newCycleForm = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
