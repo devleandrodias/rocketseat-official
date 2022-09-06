@@ -1,0 +1,60 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento backend",
+      "type": "income",
+      "category": "Serviços",
+      "price": 12600,
+      "createdAt": "2022-08-12Z14:15:33Z"
+    },
+    {
+      "id": 2,
+      "description": "Desenvolvimento frontend",
+      "type": "income",
+      "category": "Serviços",
+      "price": 7000,
+      "createdAt": "2022-08-15Z14:15:33Z"
+    },
+    {
+      "id": 3,
+      "description": "MacBook Pro M2",
+      "type": "outcome",
+      "category": "Equipamento",
+      "price": 16000,
+      "createdAt": "2022-08-15Z14:15:33Z"
+    },
+    {
+      "id": 4,
+      "description": "Curso Serverless Expert",
+      "type": "outcome",
+      "category": "Treinamentos",
+      "price": 600,
+      "createdAt": "2022-08-15Z14:15:33Z"
+    },
+    {
+      "type": "income",
+      "price": 19000,
+      "category": "Servico",
+      "description": "Desenvolvimento mobile",
+      "createdAt": "2022-09-06T20:37:19.069Z",
+      "id": 5
+    },
+    {
+      "type": "income",
+      "price": 40000,
+      "category": "Servico",
+      "description": "Desenvolvimento Infra",
+      "createdAt": "2022-09-06T20:41:52.309Z",
+      "id": 6
+    },
+    {
+      "type": "income",
+      "price": 60000,
+      "category": "Servicos",
+      "description": "Desenvolvimento area de seguranca digital",
+      "createdAt": "2022-09-06T20:52:09.474Z",
+      "id": 7
+    }
+  ]
+}
