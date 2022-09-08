@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContextSelector } from "use-context-selector";
 
 import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
@@ -14,7 +14,9 @@ import {
 } from "./styles";
 
 export function Transctions() {
-  const { transactions } = useContext(TransactionsContext);
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions;
+  });
 
   return (
     <div>
@@ -28,7 +30,7 @@ export function Transctions() {
               return (
                 <tr key={transction.id}>
                   <td width="50%">{transction.description}</td>
-                  <td>
+                  <td width="20%">
                     <PriceHighLight variant={transction.type}>
                       {transction.type === "outcome" && "- "}
                       {priceFormatter.format(transction.price)}
