@@ -6,17 +6,20 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register --require ts-node/register ./node_modules/typeorm/cli.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register --require ts-node/register ./node_modules/typeorm/cli.js"
+    "seed:admin": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules src/shared/infra/typeorm/seed/admin.ts"
   },
   "keywords": [],
   "author": "Leandro Dias",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^7.5.0",
     "aws-sdk": "^2.1111.0",
     "bcrypt": "^5.0.1",
     "csv-parse": "^5.0.4",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.3",
+    "env-var": "^7.3.0",
     "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",

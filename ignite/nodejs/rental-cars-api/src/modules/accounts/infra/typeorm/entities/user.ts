@@ -25,10 +25,10 @@ export class User {
   avatar: string;
 
   @Column()
-  driverLicense: string;
+  driver_license: string;
 
   @Column({ default: false })
-  isAdmin: boolean;
+  is_admin: boolean;
 
   @CreateDateColumn()
   createdAt: Date;

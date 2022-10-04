@@ -1,7 +1,10 @@
+import { inject, injectable } from "tsyringe";
+
+import { AppError } from "@shared/errors/app-error";
+
 import { Car } from "@modules/cars/infra/typeorm/entities/car";
 import { CarRepository } from "@modules/cars/infra/typeorm/repositories/car.repository";
-import { AppError } from "@shared/errors/app-error";
-import { inject, injectable } from "tsyringe";
+import { ICarRepository } from "@modules/cars/repositories/interfaces/car.repository.interface";
 
 interface ICreateCarRequest {
   name: string;
@@ -17,7 +20,7 @@ interface ICreateCarRequest {
 export class CreateCarService {
   constructor(
     @inject(CarRepository.name)
-    private carRepository: CarRepository
+    private carRepository: ICarRepository
   ) {}
 
   async execute({

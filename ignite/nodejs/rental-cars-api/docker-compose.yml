@@ -11,21 +11,19 @@ services:
       - POSTGRES_DB=rentalx
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=ignite
-    volumes:
-      - pgdata:/data/postgres
-  app:
-    build: .
-    container_name: rentalx
-    restart: always
-    ports:
-      - 4000:4000
-      - 9229:9229
-    volumes:
-      - .:/usr/app
-    links:
-      - database
-    depends_on:
-      - database
+  # app:
+  #   build: .
+  #   container_name: rentalx
+  #   restart: always
+  #   ports:
+  #     - 4000:4000
+  #     - 9229:9229
+  #   volumes:
+  #     - .:/usr/app
+  #   links:
+  #     - database
+  #   depends_on:
+  #     - database
 
 volumes:
   pgdata:

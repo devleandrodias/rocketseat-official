@@ -1,9 +1,17 @@
+import { Repository } from "typeorm";
+
 import { ICreateCarDto } from "@modules/cars/dtos/ICreateCarDto";
 import { ICarRepository } from "@modules/cars/repositories/interfaces/car.repository.interface";
+
 import { Car } from "../entities/car";
+import { AppDataSource } from "@shared/infra/typeorm/data-source";
 
 export class CarRepository implements ICarRepository {
-  cars: Car[] = [];
+  private repository: Repository<Car>;
+
+  constructor() {
+    this.repository = AppDataSource.getRepository(Car);
+  }
 
   async create({
     brand,
@@ -14,11 +22,9 @@ export class CarRepository implements ICarRepository {
     category_id,
     license_plate,
   }: ICreateCarDto): Promise<Car> {
-    const car = new Car();
-
-    Object.assign(car, {
-      brand,
+    const car = this.repository.create({
       name,
+      brand,
       daily_rate,
       description,
       fine_amount,
@@ -26,12 +32,13 @@ export class CarRepository implements ICarRepository {
       license_plate,
     });
 
-    this.cars.push(car);
+    await this.repository.save(car);
 
     return car;
   }
 
-  async findByLicensePlate(licensePlate: string): Promise<Car> {
-    return this.cars.find((car) => car.license_plate === licensePlate);
+  async findByLicensePlate(license_plate: string): Promise<Car> {
+    const car = await this.repository.findOne({ where: { license_plate } });
+    return car;
   }
 }

@@ -1,4 +1,3 @@
-import "dotenv/config";
 import "reflect-metadata";
 import "express-async-errors";
 
@@ -9,6 +8,8 @@ import express, { Request, Response } from "express";
 
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "../../../swagger.json";
+
+import { envs } from "@config/envs";
 
 import { router } from "@shared/infra/http/routes";
 import { AppError } from "@shared/errors/app-error";
@@ -36,7 +37,7 @@ AppDataSource.initialize().then(() => {
     });
   });
 
-  app.listen(4000, () => {
+  app.listen(envs.port, () => {
     console.log("Server is running 🚀...");
   });
 });
