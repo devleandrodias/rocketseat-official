@@ -3,6 +3,8 @@ import { ensureAuthenticate } from "@shared/infra/http/middlewares/ensure-authen
 import { FindSpecificationsController } from "@modules/cars/useCases/findSpecifications/find-specifications.controller";
 import { CreateSpecificationController } from "@modules/cars/useCases/createSpecification/create-specification.controller";
 
+import { ensureAdmin } from "../middlewares/ensure-admin";
+
 const specificationRoutes = Router();
 
 const findSpecificationsController = new FindSpecificationsController();
@@ -17,6 +19,7 @@ specificationRoutes.get(
 specificationRoutes.post(
   "/",
   ensureAuthenticate,
+  ensureAdmin,
   createSpecificationController.handle
 );
 
