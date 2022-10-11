@@ -1,0 +1,23 @@
+{
+  "name": "@devleandrodias/react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "scripts": {
+    "build": "npx tsup ./src/index.ts --format esm,cjs --dts",
+    "dev": "npx tsup ./src/index.ts --format esm,cjs --dts --watch",
+    "lint": "eslint ./src/**/*.ts* --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@devleandrodias/tokens": "*",
+    "@devleandrodias/ts-config": "*",
+    "@devleandrodias/eslint-config": "*",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.4"
+  }
+}

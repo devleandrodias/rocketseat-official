@@ -1,0 +1,4 @@
+{
+  "extends": "@devleandrodias/ts-config/base.json",
+  "include": ["src"]
+}
