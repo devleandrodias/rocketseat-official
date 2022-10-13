@@ -1,3 +1,7 @@
 module.exports = {
-  extends: "@rocketseat/eslint-config/react",
+	plugins: ["prettier"],
+	rules: {
+		"prettier/prettier": "error",
+	},
+	// extends: "@rocketseat/eslint-config/react",
 };
