@@ -18,4 +18,20 @@ export const lightTheme = {
 
   white: "#FFFFFF",
   background: "#FAFAFA",
+
+  titleXl: "48px", // transformar em REM
+  titleL: "32px",
+  titleM: "24px",
+  titleS: "20px",
+  titleXs: "18px",
+
+  textRegularL: "20px",
+  textRegularM: "16px",
+  textRegularS: "14px",
+
+  textBoldL: "20px",
+  textBoldM: "16px",
+  textBoldS: "12px",
+
+  lineHeight: 1.3,
 };
