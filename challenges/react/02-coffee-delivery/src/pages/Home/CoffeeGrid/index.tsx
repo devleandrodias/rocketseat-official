@@ -1,3 +1,15 @@
+import { coffeeCatalog } from "./data/coffeeCatalog";
+import { CoffeeCard, CoffeeGridContainer, Container } from "./styles";
+
 export function CoffeeGrid() {
-  return <h1>Coffee Grid</h1>;
+  return (
+    <Container>
+      <h1>Nossos cafés</h1>
+      <CoffeeGridContainer>
+        {coffeeCatalog.map((coffee) => (
+          <CoffeeCard />
+        ))}
+      </CoffeeGridContainer>
+    </Container>
+  );
 }

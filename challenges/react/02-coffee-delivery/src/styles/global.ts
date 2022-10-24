@@ -18,6 +18,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    padding: 2rem 10rem;
+    padding: 2rem 7rem;
   }
 `;

@@ -28,6 +28,7 @@ export const BenefitsContainer = styled.div`
   display: grid;
 
   grid-template-columns: 1fr 1fr;
+  gap: 8px;
 
   color: ${(props) => props.theme["base-text"]};
   font-size: ${(props) => props.theme.textRegularM};
@@ -36,7 +37,6 @@ export const BenefitsContainer = styled.div`
 export const BenefitsAvatar = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
 
   svg {
     color: ${(props) => props.theme.white};
