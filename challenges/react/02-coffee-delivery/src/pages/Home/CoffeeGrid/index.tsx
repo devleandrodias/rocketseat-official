@@ -1,13 +1,14 @@
+import { CoffeeCard } from "./components/CoffeeCard";
 import { coffeeCatalog } from "./data/coffeeCatalog";
-import { CoffeeCard, CoffeeGridContainer, Container } from "./styles";
+import { CoffeeGridContainer, Container, Title } from "./styles";
 
 export function CoffeeGrid() {
   return (
     <Container>
-      <h1>Nossos cafés</h1>
+      <Title>Nossos cafés</Title>
       <CoffeeGridContainer>
         {coffeeCatalog.map((coffee) => (
-          <CoffeeCard />
+          <CoffeeCard key={coffee.id} {...coffee} imgSource={""} />
         ))}
       </CoffeeGridContainer>
     </Container>
