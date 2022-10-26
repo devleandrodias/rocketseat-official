@@ -1,6 +1,6 @@
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { Box, BoxProps } from "@devleandrodias/react";
+import { Box, BoxProps, Text } from "@devleandrodias/react";
 
 const boxConfig: Meta<BoxProps> = {
 	title: "Surfaces/Box",
@@ -8,7 +8,7 @@ const boxConfig: Meta<BoxProps> = {
 	args: {
 		children: (
 			<>
-				<span>Testando elemento BOX</span>
+				<Text>Testando elemento BOX</Text>
 			</>
 		),
 	},
