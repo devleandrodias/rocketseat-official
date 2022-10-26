@@ -1,5 +1,6 @@
-import { styled } from "@stitches/react";
 import { ComponentProps, ElementType } from "react";
+
+import { styled } from "../styles";
 
 export const Text = styled("p", {
 	fontFamily: "$default",
