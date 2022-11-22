@@ -3,7 +3,7 @@ import type { StoryObj, Meta } from "@storybook/react";
 import { Box, Text, TextInput, TextInputProps } from "@devleandrodias/react";
 
 const textConfig: Meta<TextInputProps> = {
-	title: "Form/Texrt Input",
+	title: "Form/Text Input",
 	component: TextInput,
 	args: {},
 	decorators: [
