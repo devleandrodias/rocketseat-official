@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
   workflow_dispatch:
 
@@ -10,21 +10,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./ignite/reactjs/05-design-system
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
-          
+          node-version: "14"
+
       - name: Change Directory
-        run: 'cd ignite/nodejs/rental-cars-api'
-        
+        run: "cd ignite/nodejs/rental-cars-api"
+
       - name: Install Dependencies
-        run: 'npm install'
-        
+        run: "npm install"
+
       - name: Build
-        run: 'echo building...'
-        
+        run: "echo building..."
+
       - uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
