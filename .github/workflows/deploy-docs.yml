@@ -9,25 +9,22 @@ jobs:
   build-and-deploy:
     runs-on: "ubuntu-22.04"
     steps:
+      - name: Change directory
+        run: cd ignite/reactjs/05-design-system
+
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Step NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-
-      - name: Change directory
-        run: "cd ignite/reactjs/05-design-system"
-
-      - name: List directory
-        run: "ls -la"
+          node-version: "16"
 
       - name: Install Dependencies
-        run: "npm ci"
+        run: npm ci
 
       - name: Building
-        run: "npm run build"
+        run: npm run build
 
       - name: Deploy Storybook
         working-directory: ./packages/docs
