@@ -16,13 +16,13 @@ jobs:
       - name: Step NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "16"
 
-      - name: Change directory
-        run: "cd ignite/reactjs/05-design-system"
+      - name: Change Working Directory
+        run: "./ignite/reactjs/05-design-system"
 
       - name: Install Dependencies
-        run: "npm install"
+        run: "npm ci"
 
       - name: Building
         run: "npm run build"
