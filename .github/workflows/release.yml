@@ -23,7 +23,7 @@ jobs:
           cache-dependency-path: "**/package-lock.json"
 
       - name: Install Dependencies
-        run: "npm ci"
+        run: npm ci
 
       - name: Publish to NPM
         id: changesets
@@ -33,5 +33,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          TURBO_TOKEN: 8jKkH3Ze6cVxvHFeNseDtf9e
-          TURBO_TEAM: devleandrodias
+          TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          TURBO_TEAM: ${{ secrets.VERCEL_TEAM }}
