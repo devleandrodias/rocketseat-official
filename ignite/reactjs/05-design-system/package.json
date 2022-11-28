@@ -2,12 +2,16 @@
 	"private": true,
 	"scripts": {
 		"dev": "npx turbo run dev --parallel",
-		"build": "npx turbo run build"
+		"build": "npx turbo run build",
+		"changeset": "npx changeset",
+		"version-packages": "changeset version",
+		"release": "npx turbo build --filter=packages/docs && changeset publish"
 	},
 	"workspaces": [
 		"packages/*"
 	],
 	"devDependencies": {
+		"@changesets/cli": "^2.25.2",
 		"turbo": "^1.5.6"
 	}
 }
