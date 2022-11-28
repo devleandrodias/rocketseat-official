@@ -27,6 +27,9 @@ jobs:
 
       - name: Building
         run: "npm run build"
+        env:
+          TURBO_TOKEN: O8anRrKTyoDAjfiqmMtD0Jfi
+          TURBO_TEAM: devleandrodias
 
       - name: Deploy Storybook
         working-directory: ./ignite/reactjs/05-design-system/packages/docs
