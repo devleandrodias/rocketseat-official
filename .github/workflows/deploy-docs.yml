@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: 16
 
-      - name: "Change directory"
-        run: "cd ./ignite/reactjs/05-design-system/packages/docs"
+      - name: Change directory
+        run: "cd ignite/reactjs/05-design-system"
 
-      - name: "List directory"
+      - name: List directory
         run: "ls -la"
 
       - name: Install Dependencies
