@@ -7,6 +7,11 @@ const buttonConfig: Meta<ButtonProps> = {
 	title: "Form/Button",
 	component: Button,
 	args: { children: "Send" },
+	argTypes: {
+		onClick: {
+			action: "click",
+		},
+	},
 };
 
 export default buttonConfig;
