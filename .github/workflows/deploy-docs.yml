@@ -28,7 +28,7 @@ jobs:
       - name: Building
         run: "npm run build"
         env:
-          TURBO_TOKEN: O8anRrKTyoDAjfiqmMtD0Jfi
+          TURBO_TOKEN: 8jKkH3Ze6cVxvHFeNseDtf9e
           TURBO_TEAM: devleandrodias
 
       - name: Deploy Storybook
