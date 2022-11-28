@@ -1,4 +1,4 @@
-name: Deploy docs
+name: Storybook Deploy
 
 on:
   push:
@@ -29,7 +29,7 @@ jobs:
         run: "npm run build"
 
       - name: Deploy Storybook
-        working-directory: ./packages/docs
+        working-directory: ./ignite/reactjs/05-design-system/packages/docs
         run: "npm run deploy-storybook -- --ci --existing-output-dir=storybook-static"
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
