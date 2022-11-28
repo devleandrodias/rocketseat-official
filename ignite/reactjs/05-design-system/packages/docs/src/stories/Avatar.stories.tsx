@@ -9,6 +9,13 @@ const avatarConfig: Meta<AvatarProps> = {
 		src: "https://github.com/devleandrodias.png",
 		alt: "Leandro Dias",
 	},
+	argTypes: {
+		src: {
+			control: {
+				type: "text",
+			},
+		},
+	},
 };
 
 export default avatarConfig;

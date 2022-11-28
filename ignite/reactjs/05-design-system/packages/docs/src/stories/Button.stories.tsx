@@ -6,8 +6,28 @@ import { ArrowRight } from "phosphor-react";
 const buttonConfig: Meta<ButtonProps> = {
 	title: "Form/Button",
 	component: Button,
-	args: { children: "Send" },
+	args: {
+		children: "Send",
+		variant: "primary",
+		size: "md",
+		disabled: false,
+	},
 	argTypes: {
+		variant: {
+			options: ["primary", "secondary", "tertiary"],
+			control: {
+				type: "inline-radio",
+			},
+		},
+		size: {
+			options: ["sd", "md"],
+			control: {
+				type: "inline-radio",
+			},
+		},
+		disabled: {
+			type: "boolean",
+		},
 		onClick: {
 			action: "click",
 		},

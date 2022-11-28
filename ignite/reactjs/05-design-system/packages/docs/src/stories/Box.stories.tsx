@@ -12,6 +12,13 @@ const boxConfig: Meta<BoxProps> = {
 			</>
 		),
 	},
+	argTypes: {
+		children: {
+			control: {
+				type: null,
+			},
+		},
+	},
 };
 
 export default boxConfig;
