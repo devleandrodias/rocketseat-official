@@ -8,6 +8,11 @@ on:
 jobs:
   storybook-deploy:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./ignite/reactjs/05-design-system
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
