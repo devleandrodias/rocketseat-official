@@ -22,7 +22,7 @@ describe("AuthenticateUser", () => {
       name: "User Test",
       email: "user@test.com",
       password: "123456",
-      driverLicense: "000123",
+      driver_license: "000123",
     };
 
     await createUserService.execute(user);
@@ -50,7 +50,7 @@ describe("AuthenticateUser", () => {
         name: "User Test",
         email: "user@test.com",
         password: "123456",
-        driverLicense: "000123",
+        driver_license: "000123",
       };
 
       await createUserService.execute(user);

@@ -6,10 +6,10 @@ import { ICategoryRepository } from "../../repositories/interfaces/category.repo
 export class FindCategoriesService {
   constructor(
     @inject("CategoryRepository")
-    private categoryRepository: ICategoryRepository
+    private repository: ICategoryRepository
   ) {}
 
   async execute(): Promise<Category[]> {
-    return this.categoryRepository.find();
+    return this.repository.find();
   }
 }

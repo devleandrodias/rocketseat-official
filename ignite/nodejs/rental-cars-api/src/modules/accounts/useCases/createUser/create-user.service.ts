@@ -7,7 +7,7 @@ interface ICreateUserRequest {
   name: string;
   email: string;
   password: string;
-  driverLicense: string;
+  driver_license: string;
 }
 
 @injectable()
@@ -18,7 +18,7 @@ export class CreateUserService {
   ) {}
 
   async execute(data: ICreateUserRequest) {
-    const { name, email, password, driverLicense } = data;
+    const { name, email, password, driver_license } = data;
 
     if (await this.repository.findByEmail(email)) {
       throw new AppError("User already exists!");
@@ -29,7 +29,7 @@ export class CreateUserService {
     await this.repository.create({
       name,
       email,
-      driverLicense,
+      driver_license,
       password: passwordHash,
     });
   }

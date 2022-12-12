@@ -17,7 +17,7 @@ export class UserRepositoryFake implements IUserRepository {
     email,
     name,
     password,
-    driverLicense,
+    driver_license,
   }: ICreateUserDto): Promise<void> {
     const user = new User();
 
@@ -25,7 +25,7 @@ export class UserRepositoryFake implements IUserRepository {
       email,
       name,
       password,
-      driverLicense,
+      driver_license,
     });
 
     this.users.push(user);
