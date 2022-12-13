@@ -2,12 +2,11 @@ import { Request, Response, NextFunction } from "express";
 
 import { AppError } from "@shared/errors/app-error";
 import { AppDataSource } from "@shared/infra/typeorm/data-source";
-
 import { User } from "@modules/accounts/infra/typeorm/entities/user";
 
 export async function ensureAdmin(
   request: Request,
-  response: Response,
+  _: Response,
   next: NextFunction
 ) {
   const { id } = request.user;

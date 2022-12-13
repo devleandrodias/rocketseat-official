@@ -16,7 +16,7 @@ import { AppError } from "@shared/errors/app-error";
 import { AppDataSource } from "@shared/infra/typeorm/data-source";
 
 AppDataSource.initialize().then(() => {
-  console.log("Database is running 🚀...");
+  console.info("Database is running 🚀...");
 
   const app = express();
 
@@ -24,20 +24,20 @@ AppDataSource.initialize().then(() => {
   app.use(router);
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-  // app.use((err: Error, _: Request, res: Response) => {
-  //   if (err instanceof AppError) {
-  //     return res.status(err.statusCode).json({
-  //       message: err.message,
-  //     });
-  //   }
+  app.use((err: Error, _: Request, res: Response) => {
+    if (err instanceof AppError) {
+      return res.status(err.statusCode).json({
+        message: err.message,
+      });
+    }
 
-  //   return res.status(500).json({
-  //     status: "Error",
-  //     message: `Internal server error - ${err.message}`,
-  //   });
-  // });
+    return res.status(500).json({
+      status: "Error",
+      message: `Internal server error - ${err.message}`,
+    });
+  });
 
   app.listen(envs.port, () => {
-    console.log("Server is running 🚀...");
+    console.info("Server is running 🚀...");
   });
 });

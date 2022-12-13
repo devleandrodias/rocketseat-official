@@ -17,7 +17,7 @@ async function seed() {
     values('${id}', 'is_admin', '${email}', '${password}', true, '${driverLicense}')
   `);
 
-  console.log("Seeds created with success!");
+  console.info("Seeds created with success!");
 
   await connection.destroy();
 }

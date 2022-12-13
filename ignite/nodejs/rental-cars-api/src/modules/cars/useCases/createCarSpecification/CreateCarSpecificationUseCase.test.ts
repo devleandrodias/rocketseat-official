@@ -1,15 +1,20 @@
 import { AppError } from "@shared/errors/app-error";
 import { CarRepositoryInMemory } from "@modules/cars/repositories/implementations/CarRepositoryInMemory";
+import { SpecificationRepositoryInMemory } from "@modules/cars/repositories/implementations/SpecificationRepositoryInMemory";
+
 import { CreateCarSpecificationUseCase } from "./CreateCarSpecificationUseCase";
 
 let carRepository: CarRepositoryInMemory;
+let specificationRepository: SpecificationRepositoryInMemory;
 let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
 
 describe("Create car specification", () => {
   beforeEach(() => {
     carRepository = new CarRepositoryInMemory();
+    specificationRepository = new SpecificationRepositoryInMemory();
     createCarSpecificationUseCase = new CreateCarSpecificationUseCase(
-      carRepository
+      carRepository,
+      specificationRepository
     );
   });
 
@@ -35,11 +40,19 @@ describe("Create car specification", () => {
       category_id: "category_id",
     });
 
-    const specifications_id = ["54639"];
+    const specification = await specificationRepository.create({
+      name: "Opcionais",
+      description: "Teto solar",
+    });
 
-    await createCarSpecificationUseCase.execute({
+    const specifications_id = [specification.id];
+
+    const carWithSpecifications = await createCarSpecificationUseCase.execute({
       car_id: car.id,
       specifications_id,
     });
+
+    expect(carWithSpecifications).toHaveProperty("specifications");
+    expect(carWithSpecifications.specifications.length).toBe(1);
   });
 });
