@@ -2,7 +2,7 @@ import { Car } from "@modules/cars/infra/typeorm/entities/car";
 import { ICreateCarDto } from "@modules/cars/dtos/ICreateCarDto";
 import { ICarRepository } from "../interfaces/car.repository.interface";
 
-export class CreateCarRepositoryInMemory implements ICarRepository {
+export class CarRepositoryInMemory implements ICarRepository {
   private cars: Car[] = [];
 
   async create(data: ICreateCarDto): Promise<Car> {
@@ -35,5 +35,9 @@ export class CreateCarRepositoryInMemory implements ICarRepository {
       .filter((car) => name && car.name === name)
       .filter((car) => brand && car.brand === brand)
       .filter((car) => category_id && car.category_id === category_id);
+  }
+
+  async findById(id: string): Promise<Car> {
+    return this.cars.find((car) => car.id === id);
   }
 }

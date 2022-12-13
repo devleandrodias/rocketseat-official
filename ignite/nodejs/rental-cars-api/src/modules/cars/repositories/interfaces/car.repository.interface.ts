@@ -9,4 +9,5 @@ export interface ICarRepository {
     name?: string
   ): Promise<Car[]>;
   findByLicensePlate(licensePlate: string): Promise<Car>;
+  findById(id: string): Promise<Car>;
 }

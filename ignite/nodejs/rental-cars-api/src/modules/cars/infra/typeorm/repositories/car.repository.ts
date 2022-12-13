@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
 
+import { AppDataSource } from "@shared/infra/typeorm/data-source";
 import { ICreateCarDto } from "@modules/cars/dtos/ICreateCarDto";
 import { ICarRepository } from "@modules/cars/repositories/interfaces/car.repository.interface";
-import { AppDataSource } from "@shared/infra/typeorm/data-source";
 
 import { Car } from "../entities/car";
 
@@ -64,5 +64,9 @@ export class CarRepository implements ICarRepository {
     }
 
     return carsQuery.getMany();
+  }
+
+  async findById(id: string): Promise<Car> {
+    return this.repository.findOneBy({ id });
   }
 }

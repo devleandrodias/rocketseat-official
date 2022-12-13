@@ -1,19 +1,17 @@
-import { CreateCarRepositoryInMemory } from "@modules/cars/repositories/implementations/car.repository.fake";
+import { CarRepositoryInMemory } from "@modules/cars/repositories/implementations/CarRepositoryInMemory";
 import { FindAvailableCarsUseCase } from "./FindAvailableCarsUseCase";
 
 let findAvailableCarsUseCase: FindAvailableCarsUseCase;
-let carsRepositoryInMemory: CreateCarRepositoryInMemory;
+let carsRepository: CarRepositoryInMemory;
 
 describe.skip("List cars", () => {
   beforeEach(() => {
-    carsRepositoryInMemory = new CreateCarRepositoryInMemory();
-    findAvailableCarsUseCase = new FindAvailableCarsUseCase(
-      carsRepositoryInMemory
-    );
+    carsRepository = new CarRepositoryInMemory();
+    findAvailableCarsUseCase = new FindAvailableCarsUseCase(carsRepository);
   });
 
   it("should be able to list all avaliables cars", async () => {
-    const car = await carsRepositoryInMemory.create({
+    const car = await carsRepository.create({
       name: "Car_1",
       brand: "Car_brand",
       description: "Car_description",
@@ -29,7 +27,7 @@ describe.skip("List cars", () => {
   });
 
   it("should be able to list all avaliables cars by brand", async () => {
-    const car = await carsRepositoryInMemory.create({
+    const car = await carsRepository.create({
       name: "Car_2",
       brand: "Car_brand_test",
       description: "Car_description",
@@ -47,7 +45,7 @@ describe.skip("List cars", () => {
   });
 
   it("should be able to list all avaliables cars by name", async () => {
-    const car = await carsRepositoryInMemory.create({
+    const car = await carsRepository.create({
       name: "Car_3",
       brand: "Car_brand_test",
       description: "Car_description",
@@ -65,7 +63,7 @@ describe.skip("List cars", () => {
   });
 
   it("should be able to list all avaliables cars by category", async () => {
-    const car = await carsRepositoryInMemory.create({
+    const car = await carsRepository.create({
       name: "Car_4",
       brand: "Car_brand_test",
       description: "Car_description",
