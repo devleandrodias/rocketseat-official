@@ -8,17 +8,17 @@ interface ICreateCategoryRequest {
 }
 
 @injectable()
-export class CreateCategoryService {
+export class CreateCategoryUseCase {
   constructor(
     @inject("CategoryRepository")
-    private reopsitory: ICategoryRepository
+    private repository: ICategoryRepository
   ) {}
 
   async execute({ name, description }: ICreateCategoryRequest): Promise<void> {
-    if (await this.reopsitory.findByName(name)) {
+    if (await this.repository.findByName(name)) {
       throw new AppError("Category already exists!");
     }
 
-    await this.reopsitory.create({ name, description });
+    await this.repository.create({ name, description });
   }
 }

@@ -2,7 +2,7 @@ import { AppError } from "@shared/errors/app-error";
 import { CarRepositoryInMemory } from "@modules/cars/repositories/implementations/CarRepositoryInMemory";
 import { SpecificationRepositoryInMemory } from "@modules/cars/repositories/implementations/SpecificationRepositoryInMemory";
 
-import { CreateCarSpecificationUseCase } from "./CreateCarSpecificationUseCase";
+import { CreateCarSpecificationUseCase } from "../CreateCarSpecificationUseCase";
 
 let carRepository: CarRepositoryInMemory;
 let specificationRepository: SpecificationRepositoryInMemory;

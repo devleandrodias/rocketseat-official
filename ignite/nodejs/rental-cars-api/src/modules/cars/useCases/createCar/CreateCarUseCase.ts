@@ -16,7 +16,7 @@ interface ICreateCarRequest {
 }
 
 @injectable()
-export class CreateCarService {
+export class CreateCarUseCase {
   constructor(
     @inject("CarRepository")
     private carRepository: ICarRepository

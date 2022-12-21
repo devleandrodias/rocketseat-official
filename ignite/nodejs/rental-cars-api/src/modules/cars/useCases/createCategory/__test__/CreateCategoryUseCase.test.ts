@@ -1,16 +1,17 @@
 import "reflect-metadata";
 
 import { AppError } from "@shared/errors/app-error";
-import { CreateCategoryService } from "./create-category.service";
-import { CreateCategoryRepositoryFake } from "../../repositories/implementations/category.repository.fake";
+import { CreateCategoryRepositoryFake } from "@modules/cars/repositories/implementations/category.repository.fake";
 
-let createCategoryService: CreateCategoryService;
+import { CreateCategoryUseCase } from "../CreateCategoryUseCase";
+
+let createCategoryUseCase: CreateCategoryUseCase;
 let createCategoryRepository: CreateCategoryRepositoryFake;
 
 describe("CreateCategory", () => {
   beforeEach(() => {
     createCategoryRepository = new CreateCategoryRepositoryFake();
-    createCategoryService = new CreateCategoryService(createCategoryRepository);
+    createCategoryUseCase = new CreateCategoryUseCase(createCategoryRepository);
   });
 
   it("should be able to create a new category", async () => {
@@ -19,7 +20,7 @@ describe("CreateCategory", () => {
       description: "Description Test",
     };
 
-    await createCategoryService.execute({
+    await createCategoryUseCase.execute({
       name: category.name,
       description: category.description,
     });
@@ -38,12 +39,12 @@ describe("CreateCategory", () => {
         description: "Description Test",
       };
 
-      await createCategoryService.execute({
+      await createCategoryUseCase.execute({
         name: category.name,
         description: category.description,
       });
 
-      await createCategoryService.execute({
+      await createCategoryUseCase.execute({
         name: category.name,
         description: category.description,
       });

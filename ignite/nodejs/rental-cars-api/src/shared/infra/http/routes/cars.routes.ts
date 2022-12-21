@@ -1,7 +1,7 @@
 import multer from "multer";
 import { Router } from "express";
 
-import { CreateCarController } from "@modules/cars/useCases/createCar/create-car.controller";
+import { CreateCarController } from "@modules/cars/useCases/createCar/CreateCarController";
 import { UploadCarImagesController } from "@modules/cars/useCases/uploadCarImages/UploadCarImagesController";
 import { FindAvailableCarsController } from "@modules/cars/useCases/findAvailableCars/FindAvailableCarsController";
 import { CreateCarSpecificationController } from "@modules/cars/useCases/createCarSpecification/CreateCarSpecificationController";

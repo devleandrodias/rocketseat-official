@@ -3,7 +3,7 @@ import { Category } from "../../infra/typeorm/entities/category";
 import { ICategoryRepository } from "../../repositories/interfaces/category.repository.interfaces";
 
 @injectable()
-export class FindCategoriesService {
+export class FindCategoriesUseCase {
   constructor(
     @inject("CategoryRepository")
     private repository: ICategoryRepository

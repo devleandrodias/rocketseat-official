@@ -8,7 +8,7 @@ interface ICreateSpecificationRequest {
 }
 
 @injectable()
-export class CreateSepecificationService {
+export class CreateSpecificationUseCase {
   constructor(
     @inject("SpecificationRepository")
     private repository: ISpecificationRepository
