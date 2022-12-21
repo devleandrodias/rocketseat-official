@@ -1,8 +1,9 @@
-import { User } from "../../infra/typeorm/entities/user";
-import { ICreateUserDto } from "../../dtos/create-user.dto";
-import { IUserRepository } from "../user.repository.interface";
+import { ICreateUserDto } from "@modules/accounts/dtos/ICreateUserDto";
+import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
 
-export class UserRepositoryFake implements IUserRepository {
+import { User } from "../typeorm/entities/User";
+
+export class UserRepositoryInMemory implements IUserRepository {
   private users: User[] = [];
 
   async findById(id: string): Promise<User> {

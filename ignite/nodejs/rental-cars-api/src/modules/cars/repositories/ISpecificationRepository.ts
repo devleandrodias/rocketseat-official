@@ -1,9 +1,5 @@
-import { Specification } from "../../infra/typeorm/entities/specification";
-
-export interface ICreateSpecificationDto {
-  name: string;
-  description: string;
-}
+import { Specification } from "../infra/typeorm/entities/Specification";
+import { ICreateSpecificationDto } from "../dtos/ICreateSpecificationDto";
 
 export interface ISpecificationRepository {
   find(): Promise<Specification[]>;

@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
-import { Category } from "../../infra/typeorm/entities/category";
-import { ICategoryRepository } from "../../repositories/interfaces/category.repository.interfaces";
+import { Category } from "../../infra/typeorm/entities/Category";
+import { ICategoryRepository } from "@modules/cars/repositories/ICreateCategory";
 
 @injectable()
 export class FindCategoriesUseCase {

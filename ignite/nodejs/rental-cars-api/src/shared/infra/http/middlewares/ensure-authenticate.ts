@@ -2,7 +2,7 @@ import { verify } from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
 import { AppError } from "@shared/errors/app-error";
-import { UserRepository } from "@modules/accounts/infra/typeorm/repositories/user.repository";
+import { UserRepository } from "@modules/accounts/infra/typeorm/repositories/UserRepository";
 
 interface IJwtPayload {
   sub: string;

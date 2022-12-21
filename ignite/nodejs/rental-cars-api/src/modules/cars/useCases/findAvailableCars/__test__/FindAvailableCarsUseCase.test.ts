@@ -1,4 +1,4 @@
-import { CarRepositoryInMemory } from "@modules/cars/repositories/implementations/CarRepositoryInMemory";
+import { CarRepositoryInMemory } from "@modules/cars/infra/inMemory/CarRepositoryInMemory";
 import { FindAvailableCarsUseCase } from "../FindAvailableCarsUseCase";
 
 let findAvailableCarsUseCase: FindAvailableCarsUseCase;
@@ -10,7 +10,7 @@ describe.skip("List cars", () => {
     findAvailableCarsUseCase = new FindAvailableCarsUseCase(carsRepository);
   });
 
-  it("should be able to list all avaliables cars", async () => {
+  it("should be able to list all available cars", async () => {
     const car = await carsRepository.create({
       name: "Car_1",
       brand: "Car_brand",
@@ -26,7 +26,7 @@ describe.skip("List cars", () => {
     expect(cars).toEqual([car]);
   });
 
-  it("should be able to list all avaliables cars by brand", async () => {
+  it("should be able to list all available cars by brand", async () => {
     const car = await carsRepository.create({
       name: "Car_2",
       brand: "Car_brand_test",
@@ -44,7 +44,7 @@ describe.skip("List cars", () => {
     expect(cars).toEqual([car]);
   });
 
-  it("should be able to list all avaliables cars by name", async () => {
+  it("should be able to list all available cars by name", async () => {
     const car = await carsRepository.create({
       name: "Car_3",
       brand: "Car_brand_test",
@@ -62,7 +62,7 @@ describe.skip("List cars", () => {
     expect(cars).toEqual([car]);
   });
 
-  it("should be able to list all avaliables cars by category", async () => {
+  it("should be able to list all available cars by category", async () => {
     const car = await carsRepository.create({
       name: "Car_4",
       brand: "Car_brand_test",

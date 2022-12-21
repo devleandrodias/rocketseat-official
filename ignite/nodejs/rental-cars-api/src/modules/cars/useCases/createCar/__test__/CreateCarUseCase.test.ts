@@ -1,6 +1,7 @@
 import { AppError } from "@shared/errors/app-error";
-import { Car } from "@modules/cars/infra/typeorm/entities/car";
-import { CarRepositoryInMemory } from "@modules/cars/repositories/implementations/CarRepositoryInMemory";
+import { Car } from "@modules/cars/infra/typeorm/entities/Car";
+import { CarRepositoryInMemory } from "@modules/cars/infra/inMemory/CarRepositoryInMemory";
+
 import { CreateCarUseCase } from "../CreateCarUseCase";
 
 let carRepository: CarRepositoryInMemory;

@@ -1,4 +1,4 @@
-import { Specification } from "../infra/typeorm/entities/specification";
+import { Specification } from "../infra/typeorm/entities/Specification";
 
 export interface ICreateCarDto {
   id?: string;

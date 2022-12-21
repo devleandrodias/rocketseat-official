@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 
 import { AppError } from "@shared/errors/app-error";
 import { AppDataSource } from "@shared/infra/typeorm/data-source";
-import { User } from "@modules/accounts/infra/typeorm/entities/user";
+import { User } from "@modules/accounts/infra/typeorm/entities/User";
 
 export async function ensureAdmin(
   request: Request,

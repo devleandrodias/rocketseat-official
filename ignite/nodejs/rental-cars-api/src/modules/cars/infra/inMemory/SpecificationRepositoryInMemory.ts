@@ -1,9 +1,7 @@
-import { Specification } from "@modules/cars/infra/typeorm/entities/specification";
+import { ICreateSpecificationDto } from "@modules/cars/dtos/ICreateSpecificationDto";
+import { ISpecificationRepository } from "@modules/cars/repositories/ISpecificationRepository";
 
-import {
-  ICreateSpecificationDto,
-  ISpecificationRepository,
-} from "../interfaces/SpecificationRepositoryInterface";
+import { Specification } from "../typeorm/entities/Specification";
 
 export class SpecificationRepositoryInMemory
   implements ISpecificationRepository

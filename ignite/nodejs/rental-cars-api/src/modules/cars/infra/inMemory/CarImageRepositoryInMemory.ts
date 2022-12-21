@@ -1,5 +1,5 @@
 import { CarImage } from "@modules/cars/infra/typeorm/entities/CarImage";
-import { ICarImageRepository } from "../interfaces/ICarImageRepository";
+import { ICarImageRepository } from "../../repositories/ICarImageRepository";
 
 export class CarImageRepositoryInMemory implements ICarImageRepository {
   private carImages: CarImage[] = [];

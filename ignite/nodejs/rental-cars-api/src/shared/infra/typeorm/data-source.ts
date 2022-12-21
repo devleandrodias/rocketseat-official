@@ -4,12 +4,12 @@ import { DataSource } from "typeorm";
 
 import { envs } from "@config/envs";
 
-import { Car } from "@modules/cars/infra/typeorm/entities/car";
-import { User } from "@modules/accounts/infra/typeorm/entities/user";
+import { Car } from "@modules/cars/infra/typeorm/entities/Car";
+import { User } from "@modules/accounts/infra/typeorm/entities/User";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
-import { Category } from "@modules/cars/infra/typeorm/entities/category";
 import { CarImage } from "@modules/cars/infra/typeorm/entities/CarImage";
-import { Specification } from "@modules/cars/infra/typeorm/entities/specification";
+import { Category } from "@modules/cars/infra/typeorm/entities/Category";
+import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
 
 export const AppDataSource = new DataSource({
   type: "postgres",

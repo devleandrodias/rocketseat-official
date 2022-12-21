@@ -1,20 +1,22 @@
 import "reflect-metadata";
 
+import { ICreateUserDto } from "../../dtos/ICreateUserDto";
 import { AppError } from "../../../../shared/errors/app-error";
-import { ICreateUserDto } from "../../dtos/create-user.dto";
 import { CreateUserService } from "../createUser/create-user.service";
 import { AuthenticateUserService } from "./authenticate-user.service";
-import { UserRepositoryFake } from "../../repositories/implementations/user.repository.fake";
+import { UserRepositoryInMemory } from "@modules/accounts/infra/inMemory/UserRepositoryInMemory";
 
 let createUserService: CreateUserService;
-let userRepositoryFake: UserRepositoryFake;
+let userRepositoryInMemory: UserRepositoryInMemory;
 let authenticateUserService: AuthenticateUserService;
 
 describe("AuthenticateUser", () => {
   beforeEach(() => {
-    userRepositoryFake = new UserRepositoryFake();
-    createUserService = new CreateUserService(userRepositoryFake);
-    authenticateUserService = new AuthenticateUserService(userRepositoryFake);
+    userRepositoryInMemory = new UserRepositoryInMemory();
+    createUserService = new CreateUserService(userRepositoryInMemory);
+    authenticateUserService = new AuthenticateUserService(
+      userRepositoryInMemory
+    );
   });
 
   it("should be able to authenticate an user", async () => {

@@ -1,18 +1,18 @@
 import {
   Column,
   Entity,
+  ManyToOne,
+  JoinTable,
   JoinColumn,
+  ManyToMany,
   PrimaryColumn,
   CreateDateColumn,
-  ManyToOne,
-  ManyToMany,
-  JoinTable,
 } from "typeorm";
 
 import { v4 } from "uuid";
 
-import { Category } from "./category";
-import { Specification } from "./specification";
+import { Category } from "./Category";
+import { Specification } from "./Specification";
 
 @Entity("cars")
 export class Car {

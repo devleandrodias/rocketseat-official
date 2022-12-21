@@ -1,11 +1,9 @@
-import { Category } from "../../infra/typeorm/entities/category";
+import { ICreateCategoryDto } from "@modules/cars/dtos/ICreateCategoryDto";
+import { ICategoryRepository } from "@modules/cars/repositories/ICreateCategory";
 
-import {
-  ICategoryRepository,
-  ICreateCategoryDto,
-} from "../interfaces/category.repository.interfaces";
+import { Category } from "../typeorm/entities/Category";
 
-export class CreateCategoryRepositoryFake implements ICategoryRepository {
+export class CreateCategoryRepositoryInMemory implements ICategoryRepository {
   private categories: Category[] = [];
 
   async find(): Promise<Category[]> {

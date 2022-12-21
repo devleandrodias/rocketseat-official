@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
-import { IUserRepository } from "@modules/accounts/repositories/user.repository.interface";
+import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
 import { IStorageProvider } from "@shared/container/providers/storageProvider/IStorageProvider";
 
 interface IUpdateUserAvatarRequest {

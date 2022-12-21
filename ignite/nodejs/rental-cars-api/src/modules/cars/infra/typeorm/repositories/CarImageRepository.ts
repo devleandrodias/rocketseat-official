@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 
 import { AppDataSource } from "@shared/infra/typeorm/data-source";
-import { ICarImageRepository } from "@modules/cars/repositories/interfaces/ICarImageRepository";
+import { ICarImageRepository } from "@modules/cars/repositories/ICarImageRepository";
 
 import { CarImage } from "../entities/CarImage";
 

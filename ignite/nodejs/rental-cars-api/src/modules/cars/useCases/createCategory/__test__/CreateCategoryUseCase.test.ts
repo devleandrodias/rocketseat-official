@@ -1,16 +1,16 @@
 import "reflect-metadata";
 
 import { AppError } from "@shared/errors/app-error";
-import { CreateCategoryRepositoryFake } from "@modules/cars/repositories/implementations/category.repository.fake";
 
 import { CreateCategoryUseCase } from "../CreateCategoryUseCase";
+import { CreateCategoryRepositoryInMemory } from "@modules/cars/infra/inMemory/CategoryRepositoryInMemory";
 
 let createCategoryUseCase: CreateCategoryUseCase;
-let createCategoryRepository: CreateCategoryRepositoryFake;
+let createCategoryRepository: CreateCategoryRepositoryInMemory;
 
 describe("CreateCategory", () => {
   beforeEach(() => {
-    createCategoryRepository = new CreateCategoryRepositoryFake();
+    createCategoryRepository = new CreateCategoryRepositoryInMemory();
     createCategoryUseCase = new CreateCategoryUseCase(createCategoryRepository);
   });
 
