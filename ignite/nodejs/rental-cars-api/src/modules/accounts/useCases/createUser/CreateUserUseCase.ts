@@ -11,7 +11,7 @@ interface ICreateUserRequest {
 }
 
 @injectable()
-export class CreateUserService {
+export class CreateUserUseCase {
   constructor(
     @inject("UserRepository")
     private repository: IUserRepository

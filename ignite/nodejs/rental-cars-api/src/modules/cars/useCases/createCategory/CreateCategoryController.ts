@@ -5,8 +5,8 @@ import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 export class CreateCategoryController {
   async handle(req: Request, res: Response): Promise<Response> {
     const { name, description } = req.body;
-    const service = container.resolve(CreateCategoryUseCase);
-    await service.execute({ name, description });
+    const createCategoryUseCase = container.resolve(CreateCategoryUseCase);
+    await createCategoryUseCase.execute({ name, description });
     return res.status(201).send();
   }
 }

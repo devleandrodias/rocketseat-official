@@ -5,8 +5,10 @@ import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 export class CreateSpecificationController {
   async handle(req: Request, res: Response): Promise<Response> {
     const { name, description } = req.body;
-    const service = container.resolve(CreateSpecificationUseCase);
-    await service.execute({ name, description });
+    const createSpecificationUseCase = container.resolve(
+      CreateSpecificationUseCase
+    );
+    await createSpecificationUseCase.execute({ name, description });
     return res.status(201).send();
   }
 }

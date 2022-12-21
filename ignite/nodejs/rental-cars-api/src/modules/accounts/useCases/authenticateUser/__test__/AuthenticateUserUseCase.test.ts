@@ -1,20 +1,20 @@
 import "reflect-metadata";
 
-import { ICreateUserDto } from "../../dtos/ICreateUserDto";
-import { AppError } from "../../../../shared/errors/app-error";
-import { CreateUserService } from "../createUser/create-user.service";
-import { AuthenticateUserService } from "./authenticate-user.service";
+import { ICreateUserDto } from "../../../dtos/ICreateUserDto";
+import { AppError } from "../../../../../shared/errors/app-error";
+import { AuthenticateUserUseCase } from "../AuthenticateUserUseCase";
+import { CreateUserUseCase } from "../../createUser/CreateUserUseCase";
 import { UserRepositoryInMemory } from "@modules/accounts/infra/inMemory/UserRepositoryInMemory";
 
-let createUserService: CreateUserService;
+let createUserUseCase: CreateUserUseCase;
 let userRepositoryInMemory: UserRepositoryInMemory;
-let authenticateUserService: AuthenticateUserService;
+let authenticateUserUseCase: AuthenticateUserUseCase;
 
 describe("AuthenticateUser", () => {
   beforeEach(() => {
     userRepositoryInMemory = new UserRepositoryInMemory();
-    createUserService = new CreateUserService(userRepositoryInMemory);
-    authenticateUserService = new AuthenticateUserService(
+    createUserUseCase = new CreateUserUseCase(userRepositoryInMemory);
+    authenticateUserUseCase = new AuthenticateUserUseCase(
       userRepositoryInMemory
     );
   });
@@ -27,9 +27,9 @@ describe("AuthenticateUser", () => {
       driver_license: "000123",
     };
 
-    await createUserService.execute(user);
+    await createUserUseCase.execute(user);
 
-    const result = await authenticateUserService.execute({
+    const result = await authenticateUserUseCase.execute({
       email: user.email,
       password: user.password,
     });
@@ -39,7 +39,7 @@ describe("AuthenticateUser", () => {
 
   it("should not be able to authenticate with non existing user", () => {
     expect(async () => {
-      await authenticateUserService.execute({
+      await authenticateUserUseCase.execute({
         email: "no-existing@test.com",
         password: "123456",
       });
@@ -55,9 +55,9 @@ describe("AuthenticateUser", () => {
         driver_license: "000123",
       };
 
-      await createUserService.execute(user);
+      await createUserUseCase.execute(user);
 
-      await authenticateUserService.execute({
+      await authenticateUserUseCase.execute({
         email: user.email,
         password: "pass1234",
       });

@@ -22,7 +22,7 @@ docker-compose up --force-recreate -d
 
 ### Testes de Integração
 
-- Quando queremos testar fluxo da aplicação (Rota -> Controller -> Service -> Repository -> Retorno)
+- Quando queremos testar fluxo da aplicação (Rota -> Controller -> Use Case -> Repository -> Retorno)
 
 ### TDD (Test Driven Development)
 

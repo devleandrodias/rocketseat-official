@@ -3,15 +3,13 @@ import { Router } from "express";
 
 import uploadConfig from "@config/upload";
 import { ensureAuthenticate } from "@shared/infra/http/middlewares/ensure-authenticate";
-import { CreateUserController } from "@modules/accounts/useCases/createUser/create-user.controller";
-import { UpdateUserAvatarController } from "@modules/accounts/useCases/updateUserAvatar/update-user-avatar.controller";
+import { CreateUserController } from "@modules/accounts/useCases/createUser/CreateUserController";
+import { UpdateUserAvatarController } from "@modules/accounts/useCases/updateUserAvatar/UpdateUserAvatarController";
 
 const userRoutes = Router();
-
 const uploadAvatar = multer(uploadConfig);
 
 const createUserController = new CreateUserController();
-
 const updateUserAvatarController = new UpdateUserAvatarController();
 
 userRoutes.post("/", createUserController.handle);

@@ -9,7 +9,7 @@ interface IUpdateUserAvatarRequest {
 }
 
 @injectable()
-export class UpdateUserAvatarService {
+export class UpdateUserAvatarUseCase {
   constructor(
     @inject("UserRepository")
     private userRepository: IUserRepository,
