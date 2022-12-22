@@ -7,7 +7,7 @@ import { DataSource } from "typeorm";
 import { app } from "@shared/infra/http/app";
 import { AppDataSource } from "@shared/infra/typeorm/data-source";
 
-describe.skip("Create category", () => {
+describe("Find categories", () => {
   let connection: DataSource;
 
   beforeAll(async () => {
@@ -17,8 +17,6 @@ describe.skip("Create category", () => {
     const password = await hash("admin", 8);
 
     connection = await AppDataSource.initialize();
-
-    // await connection.runMigrations();
 
     await connection.query(`
       INSERT INTO USERS(id, name, email, password, is_admin, driver_license)
@@ -31,7 +29,7 @@ describe.skip("Create category", () => {
     connection.destroy();
   });
 
-  it("should be able to create a new category", async () => {
+  it("should be able to list all categories", async () => {
     const responseToken = await request(app).post("/sign-in").send({
       email: "supertest@test.com",
       password: "admin",
@@ -39,7 +37,7 @@ describe.skip("Create category", () => {
 
     const { token } = responseToken.body;
 
-    const response = await request(app)
+    await request(app)
       .post("/categories")
       .send({
         name: "Category Supertest",
@@ -49,27 +47,11 @@ describe.skip("Create category", () => {
         Authorization: `Bearer ${token}`,
       });
 
-    expect(response.status).toBe(201);
-  });
+    const response = await request(app).get("/categories");
 
-  it("should not be able to create a new category with same name", async () => {
-    const responseToken = await request(app).post("/sign-in").send({
-      email: "supertest@test.com",
-      password: "admin",
-    });
-
-    const { token } = responseToken.body;
-
-    const response = await request(app)
-      .post("/categories")
-      .send({
-        name: "Category Supertest",
-        description: "Category Supertest",
-      })
-      .set({
-        Authorization: `Bearer ${token}`,
-      });
-
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(200);
+    expect(response.body.length).toBe(1);
+    expect(response.body[0]).toHaveProperty("id");
+    expect(response.body[0].name).toEqual("Category Supertest");
   });
 });
