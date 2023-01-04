@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "@shared/errors/app-error";
-import { ICategoryRepository } from "@modules/cars/repositories/ICreateCategory";
+import { ICategoryRepository } from "@modules/cars/repositories/ICategoryRepository";
 
 interface ICreateCategoryRequest {
   name: string;

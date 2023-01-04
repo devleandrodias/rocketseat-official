@@ -1,10 +1,10 @@
 import { container } from "tsyringe";
 
-import { ICarRepository } from "@modules/cars/repositories/ICreateRepository";
-import { ICategoryRepository } from "@modules/cars/repositories/ICreateCategory";
+import { ICarRepository } from "@modules/cars/repositories/ICarRepository";
 import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
 import { IRentalRepository } from "@modules/rentals/repositories/IRentalRepository";
 import { ICarImageRepository } from "@modules/cars/repositories/ICarImageRepository";
+import { ICategoryRepository } from "@modules/cars/repositories/ICategoryRepository";
 import { ISpecificationRepository } from "@modules/cars/repositories/ISpecificationRepository";
 
 import { CarRepository } from "@modules/cars/infra/typeorm/repositories/CarRepository";

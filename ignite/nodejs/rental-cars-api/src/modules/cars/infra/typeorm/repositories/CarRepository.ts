@@ -2,7 +2,7 @@ import { Repository } from "typeorm";
 
 import { ICreateCarDto } from "@modules/cars/dtos/ICreateCarDto";
 import { AppDataSource } from "@shared/infra/typeorm/data-source";
-import { ICarRepository } from "@modules/cars/repositories/ICreateRepository";
+import { ICarRepository } from "@modules/cars/repositories/ICarRepository";
 
 import { Car } from "../entities/Car";
 
@@ -72,5 +72,15 @@ export class CarRepository implements ICarRepository {
 
   async findById(id: string): Promise<Car> {
     return this.repository.findOneBy({ id });
+  }
+
+  async updateAvailable(id: string, available: boolean): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ available })
+      .where("id = :id")
+      .setParameters({ id })
+      .execute();
   }
 }
