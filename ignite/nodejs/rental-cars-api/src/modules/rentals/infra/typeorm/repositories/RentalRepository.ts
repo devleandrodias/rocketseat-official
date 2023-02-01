@@ -14,17 +14,20 @@ export class RentalRepository implements IRentalRepository {
   }
 
   async findOpenRentalByCar(car_id: string): Promise<Rental> {
-    return this.repository.findOne({ where: { car_id } });
+    return this.repository.findOne({ where: { car_id, end_date: null } });
   }
 
   async findOpenRentalByUser(user_id: string): Promise<Rental> {
-    return this.repository.findOne({ where: { user_id } });
+    return this.repository.findOne({ where: { user_id, end_date: null } });
   }
 
   async create(data: ICreateRentalDto): Promise<Rental> {
-    const { car_id, user_id, expected_return_date } = data;
+    const { id, end_date, total, car_id, user_id, expected_return_date } = data;
 
     const rental = this.repository.create({
+      id,
+      end_date,
+      total,
       car_id,
       user_id,
       expected_return_date,
@@ -33,5 +36,9 @@ export class RentalRepository implements IRentalRepository {
     await this.repository.save(rental);
 
     return rental;
+  }
+
+  async findById(id: string): Promise<Rental> {
+    return this.repository.findOneBy({ id });
   }
 }
