@@ -13,6 +13,10 @@ export class RentalRepository implements IRentalRepository {
     this.repository = AppDataSource.getRepository(Rental);
   }
 
+  async findByUserId(id: string): Promise<Rental[]> {
+    return this.repository.find({ where: { user_id: id }, relations: ["car"] });
+  }
+
   async findOpenRentalByCar(car_id: string): Promise<Rental> {
     return this.repository.findOne({ where: { car_id, end_date: null } });
   }
