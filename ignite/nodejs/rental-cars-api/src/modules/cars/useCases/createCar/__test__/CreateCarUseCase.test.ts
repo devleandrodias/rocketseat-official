@@ -39,8 +39,8 @@ describe("Create car", () => {
       category_id: "category",
     });
 
-    expect(
-      await createCarUseCase.execute({
+    await expect(
+      createCarUseCase.execute({
         brand: "VW",
         name: "Fusca",
         daily_rate: 100,
@@ -49,7 +49,7 @@ describe("Create car", () => {
         license_plate: "ABC-1234",
         category_id: "category",
       })
-    ).rejects.toBeInstanceOf(AppError);
+    ).rejects.toEqual(new AppError("Car already exists!"));
   });
 
   it("should be able to create a car with available true as default", async () => {
