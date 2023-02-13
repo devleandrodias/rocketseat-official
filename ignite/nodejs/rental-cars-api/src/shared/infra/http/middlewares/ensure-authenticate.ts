@@ -1,8 +1,9 @@
 import { verify } from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
+import { envs } from "@config/envs";
 import { AppError } from "@shared/errors/app-error";
-import { UserRepository } from "@modules/accounts/infra/typeorm/repositories/UserRepository";
+import { UserTokenRepository } from "@modules/accounts/infra/typeorm/repositories/UserTokenRepository";
 
 interface IJwtPayload {
   sub: string;
@@ -15,19 +16,19 @@ export async function ensureAuthenticate(
 ) {
   const authHeader = req.headers.authorization;
 
+  const userTokenRepository = new UserTokenRepository();
+
   if (!authHeader) throw new AppError("Token not found", 401);
 
   const [, token] = authHeader.split(" ");
 
   try {
-    const { sub: userId } = verify(
-      token,
-      "8a2b50286d2051d88021c5b0e971e56a9c5e75f3"
-    ) as IJwtPayload;
+    const { sub: userId } = verify(token, envs.jwtRefreshToken) as IJwtPayload;
 
-    const userRepository = new UserRepository();
-
-    const user = await userRepository.findById(userId);
+    const user = await userTokenRepository.findByUserIdAndRefreshToken(
+      userId,
+      token
+    );
 
     if (!user) throw new AppError("User does not exists!", 401);
 

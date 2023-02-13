@@ -10,4 +10,12 @@ export const envs = {
   databaseUsername: env.get("DATABASE_USERNAME").required().asString(),
   databasePassword: env.get("DATABASE_PASSWORD").required().asString(),
   databaseDatabase: env.get("DATABASE_DATABASE").required().asString(),
+  jwtToken: env.get("JWT_TOKEN").required().asString(),
+  jwtExpires: env.get("JWT_EXPIRES").required().asString(),
+  jwtRefreshToken: env.get("JWT_REFRESH_TOKEN").required().asString(),
+  jwtRefreshTokenDays: env.get("JWT_REFRESH_TOKEN_DAYS").required().asInt(),
+  jwtRefreshTokenExpires: env
+    .get("JWT_REFRESH_TOKEN_EXPIRES")
+    .required()
+    .asString(),
 };
