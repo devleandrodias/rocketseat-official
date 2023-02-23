@@ -3,7 +3,8 @@ import "dotenv/config";
 import env from "env-var";
 
 export const envs = {
-  port: env.get("PORT").required().asPortNumber(),
+  appUrl: env.get("APP_URL").required().asUrlString(),
+  appPort: env.get("APP_PORT").required().asPortNumber(),
   storageDisk: env.get("DISK").required().asString(),
   databaseHost: env.get("DATABASE_HOST").required().asString(),
   databasePort: env.get("DATABASE_PORT").required().asPortNumber(),

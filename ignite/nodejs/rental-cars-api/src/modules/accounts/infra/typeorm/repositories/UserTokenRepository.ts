@@ -42,4 +42,10 @@ export class UserTokenRepository implements IUserTokenRepository {
       },
     });
   }
+
+  async findByRefreshToken(refreshToken: string): Promise<UserToken> {
+    return this.repository.findOne({
+      where: { refresh_token: refreshToken },
+    });
+  }
 }
