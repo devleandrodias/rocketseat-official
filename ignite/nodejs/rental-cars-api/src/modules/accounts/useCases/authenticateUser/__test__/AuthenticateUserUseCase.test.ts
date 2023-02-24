@@ -5,17 +5,23 @@ import { AppError } from "../../../../../shared/errors/app-error";
 import { AuthenticateUserUseCase } from "../AuthenticateUserUseCase";
 import { CreateUserUseCase } from "../../createUser/CreateUserUseCase";
 import { UserRepositoryInMemory } from "@modules/accounts/infra/inMemory/UserRepositoryInMemory";
+import { UserTokenRepositoryInMemory } from "@modules/accounts/infra/inMemory/UserTokenRepositoryInMemory";
+import { DayjsDateProvider } from "@shared/container/providers/dateProvider/implementations/dayjsDateProvider";
 
+let dateProvider: DayjsDateProvider;
 let createUserUseCase: CreateUserUseCase;
 let userRepositoryInMemory: UserRepositoryInMemory;
 let authenticateUserUseCase: AuthenticateUserUseCase;
+let userTokenRepositoryInMemory: UserTokenRepositoryInMemory;
 
 describe("AuthenticateUser", () => {
   beforeEach(() => {
     userRepositoryInMemory = new UserRepositoryInMemory();
     createUserUseCase = new CreateUserUseCase(userRepositoryInMemory);
     authenticateUserUseCase = new AuthenticateUserUseCase(
-      userRepositoryInMemory
+      userRepositoryInMemory,
+      userTokenRepositoryInMemory,
+      dateProvider
     );
   });
 

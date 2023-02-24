@@ -6,7 +6,7 @@ export interface IUserTokenRepository {
   create(data: ICreateUserTokenDto): Promise<UserToken>;
   findByRefreshToken(refreshToken: string): Promise<UserToken>;
   findByUserIdAndRefreshToken(
-    id: string,
+    userId: string,
     refreshToken: string
   ): Promise<UserToken>;
 }
