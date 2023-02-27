@@ -1,5 +1,5 @@
-import { resolve } from "path";
-import { rename, stat, unlink } from "fs/promises";
+import { resolve } from "node:path";
+import { rename, stat, unlink } from "node:fs/promises";
 
 import upload from "@config/upload";
 

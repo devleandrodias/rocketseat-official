@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "7.6.0",
-    "aws-sdk": "2.1267.0",
+    "aws-sdk": "2.1324.0",
     "bcrypt": "5.1.0",
     "csv-parse": "5.3.3",
     "dayjs": "^1.11.7",

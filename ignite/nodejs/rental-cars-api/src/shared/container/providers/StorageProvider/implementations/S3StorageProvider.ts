@@ -1,9 +1,11 @@
+import { resolve } from "node:path";
+import { readFile, unlink } from "node:fs/promises";
+
 import { S3 } from "aws-sdk";
-import { resolve } from "path";
 import { getType } from "mime";
-import { readFile, unlink } from "fs/promises";
 
 import upload from "@config/upload";
+import { envs } from "@config/envs";
 
 import { IStorageProvider } from "../IStorageProvider";
 
@@ -11,9 +13,7 @@ export class S3StorageProvider implements IStorageProvider {
   private client: S3;
 
   constructor() {
-    this.client = new S3({
-      region: process.env.AWS_DEFAULT_REGION,
-    });
+    this.client = new S3({ region: envs.awsDefaultRegion });
   }
 
   async save(file: string, folder: string): Promise<string> {
@@ -27,7 +27,7 @@ export class S3StorageProvider implements IStorageProvider {
         Body: fileContent,
         ACL: "public-read",
         ContentType: getType(originalName),
-        Bucket: `${process.env.AWS_BUKET}/${folder}`,
+        Bucket: `${envs.awsBucket}/${folder}`,
       })
       .promise();
 
@@ -38,10 +38,7 @@ export class S3StorageProvider implements IStorageProvider {
 
   async delete(file: string, folder: string): Promise<void> {
     await this.client
-      .deleteObject({
-        Key: file,
-        Bucket: `${process.env.AWS_BUKET}/${folder}`,
-      })
+      .deleteObject({ Key: file, Bucket: `${envs.awsBucket}/${folder}` })
       .promise();
   }
 }

@@ -19,4 +19,8 @@ export const envs = {
     .get("JWT_REFRESH_TOKEN_EXPIRES")
     .required()
     .asString(),
+  awsBucket: env.get("AWS_BUKET").required().asString(),
+  awsAccessKeyId: env.get("AWS_ACCESS_KEY_ID").required().asString(),
+  awsDefaultRegion: env.get("AWS_DEFAULT_REGION").required().asString(),
+  awsSecretAccessKey: env.get("AWS_SECRET_ACCESS_KEY").required().asString(),
 };
