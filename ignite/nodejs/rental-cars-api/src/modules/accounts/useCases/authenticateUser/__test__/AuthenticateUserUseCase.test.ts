@@ -6,7 +6,7 @@ import { AuthenticateUserUseCase } from "../AuthenticateUserUseCase";
 import { CreateUserUseCase } from "../../createUser/CreateUserUseCase";
 import { UserRepositoryInMemory } from "@modules/accounts/infra/inMemory/UserRepositoryInMemory";
 import { UserTokenRepositoryInMemory } from "@modules/accounts/infra/inMemory/UserTokenRepositoryInMemory";
-import { DayjsDateProvider } from "@shared/container/providers/dateProvider/implementations/dayjsDateProvider";
+import { DayjsDateProvider } from "@shared/container/providers/DateProvider/implementations/dayjsDateProvider";
 
 let dateProvider: DayjsDateProvider;
 let createUserUseCase: CreateUserUseCase;

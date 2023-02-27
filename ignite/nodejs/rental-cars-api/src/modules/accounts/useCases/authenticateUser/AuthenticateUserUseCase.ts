@@ -6,7 +6,7 @@ import { AppError } from "../../../../shared/errors/app-error";
 import { IUserRepository } from "../../repositories/IUserRepository";
 
 import { envs } from "@config/envs";
-import { IDateProvider } from "@shared/container/providers/dateProvider/IDateProvider";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { IUserTokenRepository } from "@modules/accounts/repositories/IUserTokenRepository";
 
 interface IAuthenticateUserRequest {

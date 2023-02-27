@@ -5,7 +5,7 @@ import { ICarRepository } from "@modules/cars/repositories/ICarRepository";
 import { IRentalRepository } from "@modules/rentals/repositories/IRentalRepository";
 
 import { AppError } from "@shared/errors/app-error";
-import { IDateProvider } from "@shared/container/providers/dateProvider/IDateProvider";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 
 interface IRequest {
   id: string;

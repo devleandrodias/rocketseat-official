@@ -2,7 +2,7 @@ import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@shared/errors/app-error";
-import { IDateProvider } from "@shared/container/providers/dateProvider/IDateProvider";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 
 import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
 import { IUserTokenRepository } from "@modules/accounts/repositories/IUserTokenRepository";

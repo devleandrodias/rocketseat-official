@@ -4,7 +4,7 @@ import { AppError } from "@shared/errors/app-error";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { ICarRepository } from "@modules/cars/repositories/ICarRepository";
 import { IRentalRepository } from "@modules/rentals/repositories/IRentalRepository";
-import { IDateProvider } from "@shared/container/providers/dateProvider/IDateProvider";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 
 interface IRequest {
   car_id: string;
