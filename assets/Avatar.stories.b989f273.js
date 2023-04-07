@@ -1,0 +1,2 @@
+import{A as t}from"./index.e2c12e6e.js";import"./index.6583f969.js";import"./iframe.daede9f5.js";import"./index.5689a9a7.js";import"./jsx-runtime.4f96ee2b.js";const p={title:"Data display/Avatar",component:t,args:{src:"https://github.com/devleandrodias.png",alt:"Leandro Dias"},argTypes:{src:{control:{type:"text"}}}},c={},e={args:{src:void 0}},n=["Primary","WithFallback"];export{c as Primary,e as WithFallback,n as __namedExportsOrder,p as default};
+//# sourceMappingURL=Avatar.stories.b989f273.js.map
